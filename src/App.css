@@ -1,32 +1,87 @@
-.App {
-  text-align: center;
+.l-container {
+    padding: 1rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.l-layout,
+.c-movie-container {
+    display: flex;
+    height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.c-movie__item:first-child {
+    margin-right: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.c-list__item {
+    margin-bottom: 0.5rem;
+    position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.l-layout--left,
+.l-layout--right,
+.c-list__item {
+    border: 2px solid grey;
+    padding: 1rem;
+}
+
+.l-layout--left {
+    margin-right: 1rem;
+}
+
+.l-layout--right {
+    flex-grow: 1;
+}
+
+.c-input-container {
+    margin-bottom: 1rem;
+}
+
+.c-list__item--trigger {
+    background-color: transparent;
+    border: none;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+/*
+ * Hide only visually, but have it available for screen readers.
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line, see:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.h-hide-visually {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
 }
