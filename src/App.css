@@ -1,49 +1,47 @@
-
-.l-layout,
 .c-movie-container {
     display: flex;
+
+}
+
+.l-layout {
     height: 100vh;
+    display: grid;
+    grid-template-columns: 25% auto auto;
+    grid-column-gap: 1rem;
+    grid-template-areas:
+    'left right right'
+    'left right right'
+    'left right right';
+}
+
+
+.l-layout--left {
+    background-color:var(--g-color-secondary);
+    grid-area: left;
+}
+
+.l-layout--right {
+    background-color:var(--g-color-secondary);
+    grid-area: right;
 }
 
 .c-movie__item:first-child {
     margin-right: 1rem;
 }
 
-.c-list__item {
-    margin-bottom: 0.5rem;
-    position: relative;
-}
-
 .l-layout--left,
-.l-layout--right,
-.c-list__item {
-    border: 2px solid grey;
-    padding: 1rem;
-}
-
-.l-layout--left {
-    margin-right: 1rem;
-}
-
 .l-layout--right {
-    flex-grow: 1;
+    border: 2px solid grey;
 }
 
 .c-input-container {
     margin-bottom: 1rem;
 }
 
-.c-list__item--trigger {
-    background-color: transparent;
-    border: none;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-}
 
+p, h3 {
+    color: var(--g-color-text);
+}
 
 
 

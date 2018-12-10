@@ -1,0 +1,17 @@
+:root {
+    --g-color-primary: #272529;
+    --g-color-secondary: #4D4B4F;
+    --g-color-text: #fff;
+    --g-color-highlight: #F9F871;
+
+    --g-spacing-2x-small: 0.25rem;
+    --g-spacing-x-small: 0.5rem;
+    --g-spacing-small: 0.75rem;
+    --g-spacing: 1rem;
+    --g-spacing-large: 1.5rem;
+    --g-spacing-x-large: 2rem;
+    --g-spacing-2x-large: 2.5rem;
+    --g-spacing-3x-large: 3rem;
+
+    background-color: var(--g-color-primary);
+}

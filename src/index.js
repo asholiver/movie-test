@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import "./Css/Helpers.css";
 import "./Css/Resets.css";
+import "./Css/Settings.css";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<App />, document.getElementById("root"));
