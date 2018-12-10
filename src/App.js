@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Container } from "./Components";
+import { Container, List } from "./Components";
 
 class App extends Component {
   movies = [
@@ -81,7 +81,7 @@ class App extends Component {
         const containsString = item.Title.toLowerCase().includes(
           this.state.newSearch
         );
-        if (containsString) return item;
+        return containsString ? item : null;
       });
     } else {
       newList = this.state.movies;
@@ -96,75 +96,70 @@ class App extends Component {
       <Container>
         <div className="l-layout">
           <div className="l-layout--left">
-            <form onSubmit={this.search}>
-              <fieldset>
-                <legend className="h-hide-visually">Search movies</legend>
-                <div className="c-input-container">
-                  <label htmlFor="id_search_bar" className="h-hide-visually">
-                    Search Movies
-                  </label>
-                  <input
-                    type="search"
-                    id="id_search_bar"
-                    name="newSearch"
-                    placeholder="Search movies"
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </fieldset>
-            </form>
-            {isLoading ? (
-              <div>loading</div>
-            ) : (
-              <ul className="c-list">
-                {movieList.map((movie, index) => (
-                  <li key={index} className="c-list__item">
-                    <button
-                      type="button"
-                      className="c-list__item--trigger"
-                      onClick={this.activate}
-                      value={movie.imdbID}
+            <Container size="small">
+              <form onSubmit={this.search}>
+                <fieldset>
+                  <legend className="h-hide-visually">Search movies</legend>
+                  <div className="c-input-container">
+                    <label htmlFor="id_search_bar" className="h-hide-visually">
+                      Search Movies
+                    </label>
+                    <input
+                      type="search"
+                      id="id_search_bar"
+                      name="newSearch"
+                      placeholder="Search movies"
+                      onChange={this.handleChange}
                     />
-                    <h3 className="c-movie__title">{movie.Title}</h3>
-                    <span className="c-movie__year">{movie.Year}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
+                  </div>
+                </fieldset>
+              </form>
+              {isLoading ? (
+                <div>loading</div>
+              ) : (
+                <List
+                  arr={movieList}
+                  onClick={this.activate}
+                  active={activeMovie.imdbID}
+                />
+              )}
+            </Container>
           </div>
           <div className="l-layout--right">
-            {isActive === true ? (
-              <div className="c-movie-container">
-                <div className="c-movie__item">
-                  <h3>{activeMovie.Title}</h3>
-                  <p>{activeMovie.Genre}</p>
-                  <p>{activeMovie.Plot}</p>
-                  <p>
-                    <strong>Language:</strong>
-                    {activeMovie.Language}
-                  </p>
-                  <p>
-                    <strong>Director:</strong>
-                    {activeMovie.Director}
-                  </p>
-                  <p>
-                    <strong>Actors:</strong>
-                    {activeMovie.Actors}
-                  </p>
-                  <p>
-                    <strong>Runtime:</strong>
-                    {activeMovie.Runtime}
-                  </p>
+            <Container>
+              {isActive === true ? (
+                <div className="c-movie-container">
+                  <div className="c-movie__item">
+                    <h3>{activeMovie.Title}</h3>
+                    <p>{activeMovie.Genre}</p>
+                    <p>{activeMovie.Plot}</p>
+                    <p>
+                      <strong>Language:</strong>
+                      {activeMovie.Language}
+                    </p>
+                    <p>
+                      <strong>Director:</strong>
+                      {activeMovie.Director}
+                    </p>
+                    <p>
+                      <strong>Actors:</strong>
+                      {activeMovie.Actors}
+                    </p>
+                    <p>
+                      <strong>Runtime:</strong>
+                      {activeMovie.Runtime}
+                    </p>
+                  </div>
+                  <div className="c-movie__item">
+                    <img
+                      className="c-image"
+                      alt={activeMovie.Title}
+                      src={activeMovie.Poster}
+                    />
+                  </div>
                 </div>
-                <div className="c-movie__item">
-                  <img
-                    className="c-image"
-                    alt={activeMovie.Title}
-                    src={activeMovie.Poster}
-                  />
-                </div>
-              </div>
-            ) : null}
+              ) : null}
+            </Container>
           </div>
         </div>
       </Container>

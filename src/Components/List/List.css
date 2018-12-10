@@ -1,0 +1,28 @@
+.c-list__item {
+    background-color: var(--g-color-primary);
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding: 1rem;
+}
+
+.c-list__item--trigger {
+    background-color: transparent;
+    border: none;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.c-list__item--title,
+.c-list__item--info {
+    color: var(--g-color-text);
+}
+
+.c-list__item.is-active .c-list__item--info  {
+    color: var(--g-color-highlight);
+}
