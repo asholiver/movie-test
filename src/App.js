@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Container } from "./Components";
 
 class App extends Component {
   movies = [
@@ -92,20 +93,21 @@ class App extends Component {
     const { activeMovie, isActive, movieList, isLoading } = this.state;
 
     return (
-      <div className="l-container">
+      <Container>
         <div className="l-layout">
           <div className="l-layout--left">
             <form onSubmit={this.search}>
               <fieldset>
                 <legend className="h-hide-visually">Search movies</legend>
                 <div className="c-input-container">
-                  <label htmlFor="id_search_bar" className="c-input-label">
-                    Search
+                  <label htmlFor="id_search_bar" className="h-hide-visually">
+                    Search Movies
                   </label>
                   <input
                     type="search"
                     id="id_search_bar"
                     name="newSearch"
+                    placeholder="Search movies"
                     onChange={this.handleChange}
                   />
                 </div>
@@ -165,7 +167,7 @@ class App extends Component {
             ) : null}
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }
