@@ -10,17 +10,22 @@ class App extends Component {
     isActive: false,
     isLoading: false,
     movieList: [],
-    totalResults: 0
+    totalResults: 0,
+    pageNumber: 1
   };
 
-  componentDidMount = () => {
+  getListData = (search, pageNumber = 1) => {
     axios
-      .get("http://www.omdbapi.com/?s=big&apikey=64d9571e")
+      .get(
+        `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
+      )
       .then(response => {
         console.log(response.data.Search);
         this.setState({
           movieList: response.data.Search,
-          totalResults: Number(response.data.totalResults)
+          totalResults: Number(response.data.totalResults),
+          isLoading: false,
+          pageNumber: pageNumber
         });
       })
       .catch(function(error) {
@@ -29,16 +34,24 @@ class App extends Component {
       });
   };
 
-  findMovieById = (array, id) => {
-    return array.find(element => {
-      return element.imdbID === id;
-    });
+  componentDidMount = () => {
+    this.getListData("big");
   };
 
-  activate = e => {
+  getMovieData = e => {
     const id = e.target.value;
-    const activeMovie = this.findMovieById(this.state.movies, id);
-    this.setState({ activeMovie: activeMovie, isActive: true });
+    axios
+      .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
+      .then(response => {
+        this.setState({
+          activeMovie: response.data,
+          isActive: true
+        });
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
   };
 
   handleChange = e => {
@@ -48,18 +61,7 @@ class App extends Component {
   search = e => {
     e.preventDefault();
     this.setState({ isLoading: !this.state.isLoading });
-    let newList = [];
-    if (this.state.newSearch.length) {
-      newList = this.state.movies.filter(item => {
-        const containsString = item.Title.toLowerCase().includes(
-          this.state.newSearch
-        );
-        return containsString ? item : null;
-      });
-    } else {
-      newList = this.state.movies;
-    }
-    this.setState({ movieList: newList, isLoading: !this.state.isLoading });
+    this.getListData(this.state.newSearch);
   };
 
   render() {
@@ -88,7 +90,7 @@ class App extends Component {
               ) : (
                 <List
                   arr={movieList}
-                  onClick={this.activate}
+                  onClick={this.getMovieData}
                   active={activeMovie.imdbID}
                 />
               )}
