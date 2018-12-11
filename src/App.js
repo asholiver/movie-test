@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Container, List } from "./Components";
+import { Container, List, TextField } from "./Components";
 
 class App extends Component {
   movies = [
@@ -100,18 +100,14 @@ class App extends Component {
               <form onSubmit={this.search}>
                 <fieldset>
                   <legend className="h-hide-visually">Search movies</legend>
-                  <div className="c-input-container">
-                    <label htmlFor="id_search_bar" className="h-hide-visually">
-                      Search Movies
-                    </label>
-                    <input
-                      type="search"
-                      id="id_search_bar"
-                      name="newSearch"
-                      placeholder="Search movies"
-                      onChange={this.handleChange}
-                    />
-                  </div>
+                  <TextField
+                    label="Search movies"
+                    isLabelHidden={true}
+                    type="search"
+                    name="newSearch"
+                    onChange={this.handleChange}
+                    placeholder="Search movies"
+                  />
                 </fieldset>
               </form>
               {isLoading ? (
@@ -134,19 +130,23 @@ class App extends Component {
                     <p>{activeMovie.Genre}</p>
                     <p>{activeMovie.Plot}</p>
                     <p>
-                      <strong>Language:</strong>
+                      <strong>Language: </strong>
                       {activeMovie.Language}
                     </p>
                     <p>
-                      <strong>Director:</strong>
+                      <strong>Director: </strong>
                       {activeMovie.Director}
                     </p>
                     <p>
-                      <strong>Actors:</strong>
+                      <strong>Year: </strong>
+                      {activeMovie.Year}
+                    </p>
+                    <p>
+                      <strong>Actors: </strong>
                       {activeMovie.Actors}
                     </p>
                     <p>
-                      <strong>Runtime:</strong>
+                      <strong>Runtime: </strong>
                       {activeMovie.Runtime}
                     </p>
                   </div>
