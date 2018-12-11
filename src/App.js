@@ -36,6 +36,7 @@ class App extends Component {
   };
 
   componentDidMount = () => {
+    // no option to return data with empty search on api, so passed initial search param to populate movie list
     this.getListData("big");
   };
 
