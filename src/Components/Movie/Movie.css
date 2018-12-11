@@ -1,0 +1,16 @@
+.c-form-field {
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--g-spacing);
+    text-align: left;
+}
+
+.c-form-field__input {
+    border: none;
+    border-radius: var(--g-spacing-2x-small);
+    margin-bottom: var(--g-spacing-2x-small);
+    font-size: var(--g-spacing);
+    padding: var(--g-spacing-x-small);
+}
+
