@@ -1,0 +1,27 @@
+.c-loader-container {
+    bottom: 0;
+    background-color: var(--g-color-primary);
+    opacity: 0.5;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.c-loader-container,
+.c-loader {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-loader::after {
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    animation: spin 1s infinite linear;
+    border: 0.25rem solid var(--g-color-secondary);
+    border-top-color: var(--g-color-text);
+    content: '';
+}

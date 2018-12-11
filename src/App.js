@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
-import { Container, List, Movie, TextField } from "./Components";
+import { Container, List, Loader, Movie, TextField } from "./Components";
 
 class App extends Component {
   state = {
@@ -11,7 +11,8 @@ class App extends Component {
     isLoading: false,
     movieList: [],
     totalResults: 0,
-    pageNumber: 1
+    pageNumber: 1,
+    isMovieLoading: false
   };
 
   getListData = (search, pageNumber = 1) => {
@@ -40,12 +41,14 @@ class App extends Component {
 
   getMovieData = e => {
     const id = e.target.value;
+    this.setState({ isMovieLoading: !this.state.isMovieLoading });
     axios
       .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
       .then(response => {
         this.setState({
           activeMovie: response.data,
-          isActive: true
+          isActive: true,
+          isMovieLoading: !this.state.isMovieLoading
         });
       })
       .catch(function(error) {
@@ -65,7 +68,13 @@ class App extends Component {
   };
 
   render() {
-    const { activeMovie, isActive, movieList, isLoading } = this.state;
+    const {
+      activeMovie,
+      isActive,
+      movieList,
+      isLoading,
+      isMovieLoading
+    } = this.state;
 
     return (
       <Container>
@@ -86,7 +95,7 @@ class App extends Component {
                 </fieldset>
               </form>
               {isLoading ? (
-                <div>loading</div>
+                <Loader />
               ) : (
                 <List
                   arr={movieList}
@@ -97,9 +106,17 @@ class App extends Component {
             </Container>
           </div>
           <div className="l-layout--right">
-            <Container>
-              {isActive === true ? <Movie data={activeMovie} /> : null}
-            </Container>
+            {isMovieLoading ? (
+              <Loader />
+            ) : (
+              [
+                isActive ? (
+                  <Container>
+                    <Movie data={activeMovie} />
+                  </Container>
+                ) : null
+              ]
+            )}
           </div>
         </div>
       </Container>
