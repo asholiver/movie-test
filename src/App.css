@@ -12,6 +12,7 @@
 .l-layout--left,
 .l-layout--right {
     display: flex;
+    position: relative;
 }
 
 
