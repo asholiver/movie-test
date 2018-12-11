@@ -29,13 +29,9 @@
     margin-right: 1rem;
 }
 
-.l-layout--left,
-.l-layout--right {
-    border: 2px solid grey;
-}
-
 .c-input-container {
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 

@@ -1,6 +1,5 @@
 .c-list__item {
     background-color: var(--g-color-primary);
-    border: 2px solid grey;
     border-radius: 5px;
     margin-bottom: 0.5rem;
     position: relative;
