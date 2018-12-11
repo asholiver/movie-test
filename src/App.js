@@ -101,7 +101,6 @@ class App extends Component {
             </Container>
           </div>
           <div className="l-layout--right">
-            <p>{totalResults}</p>
             <Container>
               {isActive === true ? <Movie data={activeMovie} /> : null}
             </Container>
