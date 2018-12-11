@@ -1,0 +1,5 @@
+.c-label {
+    color: var(--g-color-text);
+    font-weight: lighter;
+    margin-bottom: var(--g-spacing-2x-small);
+}
