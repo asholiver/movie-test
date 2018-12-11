@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import "./Css/Helpers.css";
+import "./Css/Keyframes.css";
 import "./Css/Resets.css";
 import "./Css/Settings.css";
 import * as serviceWorker from "./serviceWorker";

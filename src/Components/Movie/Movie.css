@@ -1,16 +1,8 @@
-.c-form-field {
-
+.c-movie-container {
+    animation: opacity-fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
     display: flex;
-    flex-direction: column;
-    margin-bottom: var(--g-spacing);
-    text-align: left;
 }
 
-.c-form-field__input {
-    border: none;
-    border-radius: var(--g-spacing-2x-small);
-    margin-bottom: var(--g-spacing-2x-small);
-    font-size: var(--g-spacing);
-    padding: var(--g-spacing-x-small);
+.c-movie__item:first-child {
+    margin-right: 1rem;
 }
-
