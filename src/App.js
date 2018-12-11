@@ -63,13 +63,7 @@ class App extends Component {
   };
 
   render() {
-    const {
-      activeMovie,
-      isActive,
-      movieList,
-      isLoading,
-      totalResults
-    } = this.state;
+    const { activeMovie, isActive, movieList, isLoading } = this.state;
 
     return (
       <Container>
