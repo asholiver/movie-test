@@ -2,15 +2,17 @@
     animation: opacity-fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
 }
 
-.c-list__item {
+.c-list-item {
     background-color: var(--g-color-primary);
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 0.5rem;
     position: relative;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
-.c-list__item--trigger {
+.c-list-item__trigger {
     background-color: transparent;
     border: none;
     bottom: 0;
@@ -21,11 +23,21 @@
     width: 100%;
 }
 
-.c-list__item--title,
-.c-list__item--info {
+.c-list-item__title,
+.c-list-item__info {
     color: var(--g-color-text);
 }
 
-.c-list__item.is-active .c-list__item--info  {
+.c-list-item__title {
+    font-size: 1rem;
+    padding-bottom: var(--g-spacing-x-small);
+}
+
+.c-list-item__info {
+    text-align: right;
+    font-size: 0.75rem;
+}
+
+.c-list-item.is-active .c-list-item__info  {
     color: var(--g-color-highlight);
 }

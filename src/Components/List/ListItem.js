@@ -4,16 +4,19 @@ import classNames from "classnames";
 
 const ListItem = ({ onClick, title, year, value, isActive }) => {
   const classes = classNames({
-    "c-list__item": true,
+    "c-list-item": true,
     "is-active": isActive
   });
   return (
     <li className={classes}>
-      <h3 className="c-list__item--title">{title}</h3>
-      <span className="c-list__item--info">{year}</span>
+      <div className="c-list-item__title-container">
+        <h3 className="c-list-item__title">{title}</h3>
+      </div>
+
+      <span className="c-list-item__info">{year}</span>
       <button
         type="button"
-        className="c-list__item--trigger"
+        className="c-list-item__trigger"
         onClick={onClick}
         value={value}
       >

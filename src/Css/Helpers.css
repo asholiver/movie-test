@@ -18,3 +18,20 @@
     width: 1px;
     white-space: nowrap; /* 1 */
 }
+
+
+.h-spacing {
+    padding-bottom: var(--spacing);
+}
+
+.h-spacing-small {
+    padding-bottom: var(--spacing-small);
+}
+
+.h-spacing-x-small {
+    padding-bottom: var(--spacing-x-small);
+}
+
+.h-spacing-2x-small {
+    padding-bottom: var(--spacing-2x-small);
+}
