@@ -25,3 +25,12 @@
     border-top-color: var(--g-color-text);
     content: '';
 }
+
+.c-loader-container--alt.c-loader-container  {
+    background-color: var(--g-color-secondary);
+}
+
+.c-loader-container--alt .c-loader::after {
+    border-color: var(--g-color-primary);
+    border-top-color: var(--g-color-text);
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import "./List.css";
 import classNames from "classnames";
+import { Icon } from "./../icons";
 
 const ListItem = ({ onClick, title, year, value, isActive }) => {
   const classes = classNames({
@@ -11,6 +12,7 @@ const ListItem = ({ onClick, title, year, value, isActive }) => {
     <li className={classes}>
       <div className="c-list-item__title-container">
         <h3 className="c-list-item__title">{title}</h3>
+        <Icon icon="star" classes="c-list-item__icon" size="x-small" />
       </div>
 
       <span className="c-list-item__info">{year}</span>
@@ -22,7 +24,6 @@ const ListItem = ({ onClick, title, year, value, isActive }) => {
       >
         <span className="h-hide-visually">{title} - Click to view</span>
       </button>
-      {isActive ? <p>active</p> : null}
     </li>
   );
 };

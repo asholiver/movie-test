@@ -1,13 +1,7 @@
 .c-icon {
-    color: var(--g-color-white-500);
     display: block;
     height: var(--g-spacing-3x-large);
     width: var(--g-spacing-3x-large);
-}
-
-.c-icon--large {
-    height: 60px;
-    width: 60px;
 }
 
 .c-icon--small {

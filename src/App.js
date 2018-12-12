@@ -77,49 +77,47 @@ class App extends Component {
     } = this.state;
 
     return (
-      <Container>
-        <div className="l-layout">
-          <div className="l-layout--left">
-            <Container size="small">
-              <form onSubmit={this.search}>
-                <fieldset>
-                  <legend className="h-hide-visually">Search movies</legend>
-                  <TextField
-                    label="Search movies"
-                    isLabelHidden={true}
-                    type="search"
-                    name="newSearch"
-                    onChange={this.handleChange}
-                    placeholder="Search movies"
-                  />
-                </fieldset>
-              </form>
-              {isLoading ? (
-                <Loader />
-              ) : (
-                <List
-                  arr={movieList}
-                  onClick={this.getMovieData}
-                  active={activeMovie.imdbID}
+      <div className="l-layout">
+        <div className="l-layout--left">
+          <Container size="small">
+            <form onSubmit={this.search}>
+              <fieldset>
+                <legend className="h-hide-visually">Search movies</legend>
+                <TextField
+                  label="Search movies"
+                  isLabelHidden={true}
+                  type="search"
+                  name="newSearch"
+                  onChange={this.handleChange}
+                  placeholder="Search movies"
                 />
-              )}
-            </Container>
-          </div>
-          <div className="l-layout--right">
-            {isMovieLoading ? (
+              </fieldset>
+            </form>
+            {isLoading ? (
               <Loader />
             ) : (
-              [
-                isActive ? (
-                  <Container>
-                    <Movie data={activeMovie} />
-                  </Container>
-                ) : null
-              ]
+              <List
+                arr={movieList}
+                onClick={this.getMovieData}
+                active={activeMovie.imdbID}
+              />
             )}
-          </div>
+          </Container>
         </div>
-      </Container>
+        <div className="l-layout--right">
+          {isMovieLoading ? (
+            <Loader isAlt={true} />
+          ) : (
+            [
+              isActive ? (
+                <Container key={activeMovie.imdbID}>
+                  <Movie data={activeMovie} />
+                </Container>
+              ) : null
+            ]
+          )}
+        </div>
+      </div>
     );
   }
 }

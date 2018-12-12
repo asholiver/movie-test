@@ -1,8 +1,6 @@
 .l-layout {
-    height: 100vh;
     display: grid;
-    grid-template-columns: 25% auto auto;
-    grid-column-gap: 1rem;
+    grid-template-columns: 20% auto auto;
     grid-template-areas:
     'left right right'
     'left right right'
@@ -11,7 +9,6 @@
 
 .l-layout--left,
 .l-layout--right {
-    display: flex;
     position: relative;
 }
 
@@ -22,7 +19,7 @@
 }
 
 .l-layout--right {
-    background-color:var(--g-color-secondary);
+    background-color:var(--g-color-primary);
     grid-area: right;
 }
 

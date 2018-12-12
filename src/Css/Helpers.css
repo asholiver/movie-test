@@ -1,3 +1,8 @@
+.h-hide {
+    display: none;
+}
+
+
 /*
  * Hide only visually, but have it available for screen readers.
  *
