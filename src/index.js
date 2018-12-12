@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { Icons } from "./Components";
 import "./Css/Helpers.css";
 import "./Css/Keyframes.css";
 import "./Css/Resets.css";

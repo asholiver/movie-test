@@ -1,0 +1,8 @@
+.l-container {
+    padding: 1rem;
+    width: 100%
+}
+
+.l-container--small {
+    padding: 0.5rem;
+}
