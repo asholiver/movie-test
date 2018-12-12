@@ -23,6 +23,11 @@
     width: 100%;
 }
 
+.c-list-item:hover,
+.c-list-item:focus {
+  opacity: 0.8;
+}
+
 .c-list-item__title-container {
     align-items: center;
     display: flex;

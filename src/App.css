@@ -1,6 +1,6 @@
 .l-layout {
     display: grid;
-    grid-template-columns: 20% auto auto;
+    grid-template-columns: 25% auto auto;
     grid-template-areas:
     'left right right'
     'left right right'

@@ -79,7 +79,7 @@ class App extends Component {
     return (
       <div className="l-layout">
         <div className="l-layout--left">
-          <Container size="small">
+          <Container>
             <form onSubmit={this.search}>
               <fieldset>
                 <legend className="h-hide-visually">Search movies</legend>
