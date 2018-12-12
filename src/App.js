@@ -20,26 +20,31 @@ class App extends Component {
     totalResults: 0,
     pageNumber: 1,
     isMovieLoading: false,
-    previousSearch: ""
+    previousSearch: "",
+    errorMessage: ""
   };
 
   getListData = (search, pageNumber = 1) => {
-    console.log(
-      `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
-    );
     axios
       .get(
         `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
       )
       .then(response => {
         console.log(response);
-        this.setState({
-          movieList: response.data.Search,
-          totalResults: Number(response.data.totalResults),
-          isLoading: false,
-          pageNumber: pageNumber,
-          previousSearch: search
-        });
+        if (response.data.Error) {
+          this.setState({
+            errorMessage: response.data.Error,
+            isLoading: false
+          });
+        } else {
+          this.setState({
+            movieList: response.data.Search,
+            totalResults: Number(response.data.totalResults),
+            isLoading: false,
+            pageNumber: pageNumber,
+            previousSearch: search
+          });
+        }
       })
       .catch(function(error) {
         // handle error
@@ -82,10 +87,8 @@ class App extends Component {
 
   switchPage = e => {
     const newPage = e.target.value;
-    console.log(this.state.previousSearch);
-    console.log(this.state.isLoading);
     this.setState({ isLoading: !this.state.isLoading });
-    this.getListData(this.state.previousSearch, newPage);
+    this.getListData(this.state.newSearch, newPage);
   };
 
   render() {
@@ -96,7 +99,8 @@ class App extends Component {
       isLoading,
       isMovieLoading,
       pageNumber,
-      totalResults
+      totalResults,
+      errorMessage
     } = this.state;
 
     return (
@@ -123,11 +127,18 @@ class App extends Component {
                 {isLoading ? (
                   <Loader />
                 ) : (
-                  <List
-                    arr={movieList}
-                    onClick={this.getMovieData}
-                    active={activeMovie.imdbID}
-                  />
+                  [
+                    errorMessage ? (
+                      <p key={1}>{errorMessage}</p>
+                    ) : (
+                      <List
+                        key={2}
+                        arr={movieList}
+                        onClick={this.getMovieData}
+                        active={activeMovie.imdbID}
+                      />
+                    )
+                  ]
                 )}
               </div>
               {totalResults > 10 ? (
