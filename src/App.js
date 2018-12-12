@@ -21,7 +21,6 @@ class App extends Component {
         `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
       )
       .then(response => {
-        console.log(response.data.Search);
         this.setState({
           movieList: response.data.Search,
           totalResults: Number(response.data.totalResults),

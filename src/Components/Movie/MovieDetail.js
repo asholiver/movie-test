@@ -5,7 +5,7 @@ const MovieDetail = ({ item }) => {
   return (
     <p>
       <strong>{item.title}: </strong>
-      {item.detail}
+      {item.detail}.
     </p>
   );
 };

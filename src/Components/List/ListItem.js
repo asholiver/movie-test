@@ -9,14 +9,16 @@ const ListItem = ({ onClick, title, year, value, isActive }) => {
   });
   return (
     <li className={classes}>
+      <h3 className="c-list__item--title">{title}</h3>
+      <span className="c-list__item--info">{year}</span>
       <button
         type="button"
         className="c-list__item--trigger"
         onClick={onClick}
         value={value}
-      />
-      <h3 className="c-list__item--title">{title}</h3>
-      <span className="c-list__item--info">{year}</span>
+      >
+        <span className="h-hide-visually">{title} - Click to view</span>
+      </button>
       {isActive ? <p>active</p> : null}
     </li>
   );
