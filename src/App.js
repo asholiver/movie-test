@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import {
-  ButtonIconOnly,
   Container,
   List,
-  Loader,
   Movie,
-  TextField
+  PaginationController,
+  SearchController
 } from "./Components";
 
 class App extends Component {
   state = {
     newSearch: "",
     activeMovie: [],
-    isActive: false,
     isLoading: false,
     movieList: [],
     totalResults: 0,
@@ -65,7 +63,6 @@ class App extends Component {
       .then(response => {
         this.setState({
           activeMovie: response.data,
-          isActive: true,
           isMovieLoading: !this.state.isMovieLoading
         });
       })
@@ -94,7 +91,6 @@ class App extends Component {
   render() {
     const {
       activeMovie,
-      isActive,
       movieList,
       isLoading,
       isMovieLoading,
@@ -109,81 +105,34 @@ class App extends Component {
           <Container>
             <div className="c-control-panel">
               <div className="c-control-panel__item">
-                <form onSubmit={this.search}>
-                  <fieldset>
-                    <legend className="h-hide-visually">Search movies</legend>
-                    <TextField
-                      label="Search movies"
-                      isLabelHidden={true}
-                      type="search"
-                      name="newSearch"
-                      onChange={this.handleChange}
-                      placeholder="Search movies"
-                    />
-                  </fieldset>
-                </form>
+                <SearchController
+                  onSubmit={this.search}
+                  onClick={this.handleChange}
+                />
               </div>
               <div className="c-control-panel__item c-control-panel__item--large">
-                {isLoading ? (
-                  <Loader />
-                ) : (
-                  [
-                    errorMessage ? (
-                      <p key={1}>{errorMessage}</p>
-                    ) : (
-                      <List
-                        key={2}
-                        arr={movieList}
-                        onClick={this.getMovieData}
-                        active={activeMovie.imdbID}
-                      />
-                    )
-                  ]
-                )}
+                <List
+                  arr={movieList}
+                  onClick={this.getMovieData}
+                  active={activeMovie.imdbID}
+                  errorMessage={errorMessage}
+                  isLoading={isLoading}
+                />
               </div>
               {totalResults > 10 ? (
                 <div className="c-control-panel__item">
-                  <div className="c-control-panel__pagination">
-                    <ButtonIconOnly
-                      buttonValue={pageNumber - 1}
-                      buttonOnClick={this.switchPage}
-                      icon="arrow"
-                      classes="c-control-panel__button c-control-panel__button-left"
-                      size="x-small"
-                      helpText="Previous page"
-                      isDisabled={pageNumber === 1}
-                    />
-                    <div className="c-control-panel__pagination-info">
-                      <p>Page {pageNumber}</p>
-                      <span>{totalResults} results</span>
-                    </div>
-                    <ButtonIconOnly
-                      buttonValue={pageNumber + 1}
-                      buttonOnClick={this.switchPage}
-                      icon="arrow"
-                      classes="c-control-panel__button"
-                      size="x-small"
-                      helpText="Next page"
-                      isDisabled={pageNumber === totalResults}
-                    />
-                  </div>
+                  <PaginationController
+                    onClick={this.switchPage}
+                    value={pageNumber}
+                    results={totalResults}
+                  />
                 </div>
               ) : null}
             </div>
           </Container>
         </div>
         <div className="l-layout--right">
-          {isMovieLoading ? (
-            <Loader isAlt={true} />
-          ) : (
-            [
-              isActive ? (
-                <Container key={activeMovie.imdbID}>
-                  <Movie data={activeMovie} />
-                </Container>
-              ) : null
-            ]
-          )}
+          <Movie data={activeMovie} isLoading={isMovieLoading} />
         </div>
       </div>
     );

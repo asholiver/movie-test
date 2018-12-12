@@ -5,6 +5,8 @@ import { List, ListItem } from "./List";
 import Loader from "./Loader";
 import { Icon, Icons } from "./icons";
 import { Movie, MovieDetail } from "./Movie";
+import PaginationController from "./PaginationController";
+import SearchController from "./SearchController";
 import TextField from "./TextField";
 export {
   ButtonIconOnly,
@@ -17,5 +19,7 @@ export {
   Icons,
   Movie,
   MovieDetail,
+  PaginationController,
+  SearchController,
   TextField
 };
