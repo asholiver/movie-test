@@ -1,0 +1,8 @@
+.c-button-icon-only {
+    align-items: center;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    margin: var(--g-spacing-2x-small);
+    padding: var(--g-spacing-2x-small);
+}

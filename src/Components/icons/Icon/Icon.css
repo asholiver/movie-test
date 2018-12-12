@@ -2,6 +2,8 @@
     display: block;
     height: var(--g-spacing-3x-large);
     width: var(--g-spacing-3x-large);
+    pointer-events: none;
+
 }
 
 .c-icon--small {

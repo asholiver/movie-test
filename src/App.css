@@ -24,9 +24,40 @@
 }
 
 
-p, h3 {
+p, h3, span {
     color: var(--g-color-text);
 }
 
 
+.c-control-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+.c-control-panel__item--large {
+    flex-grow: 1;
+
+}
+
+.c-control-panel__pagination {
+    align-items: center;
+    display: flex;
+}
+
+.c-control-panel__pagination-info {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.c-control-panel__button {
+    color: var(--g-color-highlight);
+}
+
+.c-control-panel__button-left {
+    transform: rotate(180deg);
+}
+
+.c-control-panel__button:disabled {
+    color: var(--g-color-primary);
+}

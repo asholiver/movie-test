@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
-import { Container, List, Loader, Movie, TextField } from "./Components";
+import {
+  ButtonIconOnly,
+  Container,
+  List,
+  Loader,
+  Movie,
+  TextField
+} from "./Components";
 
 class App extends Component {
   state = {
@@ -12,20 +19,26 @@ class App extends Component {
     movieList: [],
     totalResults: 0,
     pageNumber: 1,
-    isMovieLoading: false
+    isMovieLoading: false,
+    previousSearch: ""
   };
 
   getListData = (search, pageNumber = 1) => {
+    console.log(
+      `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
+    );
     axios
       .get(
         `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
       )
       .then(response => {
+        console.log(response);
         this.setState({
           movieList: response.data.Search,
           totalResults: Number(response.data.totalResults),
           isLoading: false,
-          pageNumber: pageNumber
+          pageNumber: pageNumber,
+          previousSearch: search
         });
       })
       .catch(function(error) {
@@ -67,41 +80,85 @@ class App extends Component {
     this.getListData(this.state.newSearch);
   };
 
+  switchPage = e => {
+    const newPage = e.target.value;
+    console.log(this.state.previousSearch);
+    console.log(this.state.isLoading);
+    this.setState({ isLoading: !this.state.isLoading });
+    this.getListData(this.state.previousSearch, newPage);
+  };
+
   render() {
     const {
       activeMovie,
       isActive,
       movieList,
       isLoading,
-      isMovieLoading
+      isMovieLoading,
+      pageNumber,
+      totalResults
     } = this.state;
 
     return (
       <div className="l-layout">
         <div className="l-layout--left">
           <Container>
-            <form onSubmit={this.search}>
-              <fieldset>
-                <legend className="h-hide-visually">Search movies</legend>
-                <TextField
-                  label="Search movies"
-                  isLabelHidden={true}
-                  type="search"
-                  name="newSearch"
-                  onChange={this.handleChange}
-                  placeholder="Search movies"
-                />
-              </fieldset>
-            </form>
-            {isLoading ? (
-              <Loader />
-            ) : (
-              <List
-                arr={movieList}
-                onClick={this.getMovieData}
-                active={activeMovie.imdbID}
-              />
-            )}
+            <div className="c-control-panel">
+              <div className="c-control-panel__item">
+                <form onSubmit={this.search}>
+                  <fieldset>
+                    <legend className="h-hide-visually">Search movies</legend>
+                    <TextField
+                      label="Search movies"
+                      isLabelHidden={true}
+                      type="search"
+                      name="newSearch"
+                      onChange={this.handleChange}
+                      placeholder="Search movies"
+                    />
+                  </fieldset>
+                </form>
+              </div>
+              <div className="c-control-panel__item c-control-panel__item--large">
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <List
+                    arr={movieList}
+                    onClick={this.getMovieData}
+                    active={activeMovie.imdbID}
+                  />
+                )}
+              </div>
+              {totalResults > 10 ? (
+                <div className="c-control-panel__item">
+                  <div className="c-control-panel__pagination">
+                    <ButtonIconOnly
+                      buttonValue={pageNumber - 1}
+                      buttonOnClick={this.switchPage}
+                      icon="arrow"
+                      classes="c-control-panel__button c-control-panel__button-left"
+                      size="x-small"
+                      helpText="Previous page"
+                      isDisabled={pageNumber === 1}
+                    />
+                    <div className="c-control-panel__pagination-info">
+                      <p>Page {pageNumber}</p>
+                      <span>{totalResults} results</span>
+                    </div>
+                    <ButtonIconOnly
+                      buttonValue={pageNumber + 1}
+                      buttonOnClick={this.switchPage}
+                      icon="arrow"
+                      classes="c-control-panel__button"
+                      size="x-small"
+                      helpText="Next page"
+                      isDisabled={pageNumber === totalResults}
+                    />
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </Container>
         </div>
         <div className="l-layout--right">
