@@ -1,12 +1,11 @@
 import React from "react";
 import "./List.css";
-import ListItem from "./ListItem";
-import Loader from "./../Loader";
+import { EmptyElement, Loader, ListItem } from "..";
 
 const List = ({ arr, isOrdered, onClick, active, isLoading, errorMessage }) => {
   const Tag = isOrdered ? "ol" : "ul";
   if (isLoading) return <Loader />;
-  if (errorMessage) return <p>{errorMessage}</p>;
+  if (errorMessage) return <EmptyElement text={errorMessage} />;
   return (
     <Tag className="c-list">
       {arr.map((item, index) => (

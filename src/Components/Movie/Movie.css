@@ -4,5 +4,6 @@
 }
 
 .c-movie__item:first-child {
+    flex-grow: 1;
     margin-right: var(--g-spacing);
 }

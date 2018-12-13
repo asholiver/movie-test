@@ -1,8 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Movie.css";
-import MovieDetail from "./MovieDetail";
-import Loader from "./../Loader";
-import Container from "./../Container";
+import { Container, EmptyElement, Loader, MovieDetail } from "..";
 
 const Movie = ({ data, isLoading }) => {
   const arr = [
@@ -28,17 +26,23 @@ const Movie = ({ data, isLoading }) => {
     }
   ];
   if (isLoading) return <Loader isAlt={true} />;
-  if (data.length === 0) return <p>No movie selected</p>;
+
   return (
     <Container>
       <div className="c-movie-container">
         <div className="c-movie__item">
-          <h3>{data.Title}</h3>
-          <p>{data.Genre}</p>
-          <p>{data.Plot}</p>
-          {arr.map((item, index) => (
-            <MovieDetail key={index} item={item} />
-          ))}
+          {data.length === 0 ? (
+            <EmptyElement text="No movie selected" size="large" />
+          ) : (
+            <Fragment>
+              <h3>{data.Title}</h3>
+              <p>{data.Genre}</p>
+              <p>{data.Plot}</p>
+              {arr.map((item, index) => (
+                <MovieDetail key={index} item={item} />
+              ))}
+            </Fragment>
+          )}
         </div>
         <div className="c-movie__item">
           <img className="c-image" alt={data.Title} src={data.Poster} />
