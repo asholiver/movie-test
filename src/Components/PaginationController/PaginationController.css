@@ -27,5 +27,5 @@
 
 
 .c-pagination__info {
-    font-size: var(-g-font-size-small);
+    font-size: var(--g-font-size-small);
 }

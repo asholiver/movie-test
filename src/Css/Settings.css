@@ -19,6 +19,9 @@
     --g-border-radius: 5px;
 
     --g-loader-size: 5rem;
+}
 
+.c-root {
     background-color: var(--g-color-primary);
+    height: 100%;
 }

@@ -30,6 +30,7 @@ class App extends Component {
         `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
       )
       .then(response => {
+        // deliberately left the ability to empty search for the error to be shown.
         if (response.data.Error) {
           this.setState({
             errorMessage: response.data.Error,
@@ -41,7 +42,8 @@ class App extends Component {
             totalResults: Number(response.data.totalResults),
             isLoading: false,
             pageNumber: Number(pageNumber),
-            previousSearch: search
+            previousSearch: search,
+            errorMessage: ""
           });
         }
       })
@@ -87,7 +89,7 @@ class App extends Component {
 
   search = e => {
     e.preventDefault();
-    this.setState({ isLoading: !this.state.isLoading });
+    this.setState({ isLoading: !this.state.isLoading, totalResults: 0 });
     this.getListData(this.state.newSearch);
   };
 

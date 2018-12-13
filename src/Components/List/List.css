@@ -9,7 +9,7 @@
     flex-direction: column;
     margin-bottom: var(--g-spacing-x-small);
     position: relative;
-    padding: var(--g-spacing-x-small);
+    padding: var(--g-spacing-small);
 }
 
 .c-list-item__trigger {
