@@ -1,0 +1,24 @@
+.l-layout {
+    display: grid;
+    grid-template-columns: 25% auto auto;
+    grid-template-areas:
+    'aside main main'
+    'aside main main'
+    'aside main main';
+}
+
+.l-layout__aside,
+.l-layout__main {
+    position: relative;
+}
+
+
+.l-layout__aside {
+    background-color:var(--g-color-secondary);
+    grid-area: aside;
+}
+
+.l-layout__main {
+    background-color:var(--g-color-primary);
+    grid-area: main;
+}

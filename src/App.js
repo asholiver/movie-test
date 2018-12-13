@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import {
-  Container,
   ControlPanel,
   List,
   Movie,
   PaginationController,
   SearchController
 } from "./Components";
+import { Page, Aside, Main } from "./Layout";
 
 class App extends Component {
   state = {
@@ -20,7 +20,8 @@ class App extends Component {
     pageNumber: 1,
     isMovieLoading: false,
     previousSearch: "",
-    errorMessage: ""
+    errorMessage: "",
+    movieId: ""
   };
 
   getListData = (search, pageNumber = 1) => {
@@ -46,6 +47,10 @@ class App extends Component {
         }
       })
       .catch(function(error) {
+        this.setState({
+          errorMessage: "Hmm... something went wrong.",
+          isLoading: false
+        });
         // handle error
         console.log(error);
       });
@@ -77,6 +82,10 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  activateMovie = e => {
+    this.setState({ movieId: Number(e.target.value) });
+  };
+
   search = e => {
     e.preventDefault();
     this.setState({ isLoading: !this.state.isLoading });
@@ -97,7 +106,8 @@ class App extends Component {
       isMovieLoading,
       pageNumber,
       totalResults,
-      errorMessage
+      errorMessage,
+      movieId
     } = this.state;
     const controlPanelItems = [
       {
@@ -135,14 +145,14 @@ class App extends Component {
     ];
 
     return (
-      <div className="l-layout">
-        <aside className="l-layout--left">
+      <Page>
+        <Aside>
           <ControlPanel data={controlPanelItems} />
-        </aside>
-        <main className="l-layout--right">
-          <Movie data={activeMovie} isLoading={isMovieLoading} />
-        </main>
-      </div>
+        </Aside>
+        <Main>
+          <Movie id={movieId} data={activeMovie} isLoading={isMovieLoading} />
+        </Main>
+      </Page>
     );
   }
 }
