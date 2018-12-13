@@ -9,17 +9,15 @@
 }
 
 .l-layout__aside,
-.l-layout__main {
+.l-layout__section {
     position: relative;
 }
 
 
 .l-layout__aside {
-    background-color:var(--g-color-secondary);
     grid-area: aside;
 }
 
-.l-layout__main {
-    background-color:var(--g-color-primary);
+.l-layout__section {
     grid-area: main;
 }

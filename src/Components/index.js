@@ -1,5 +1,4 @@
 import ButtonIconOnly from "./Buttons";
-import Container from "./Container";
 import ControlPanel from "./ControlPanel";
 import EmptyElement from "./EmptyElement";
 import Fieldset from "./Fieldset";
@@ -15,7 +14,6 @@ import SearchController from "./SearchController";
 import TextField from "./TextField";
 export {
   ButtonIconOnly,
-  Container,
   ControlPanel,
   EmptyElement,
   Fieldset,
