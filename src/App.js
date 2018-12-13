@@ -40,8 +40,8 @@ class App extends Component {
           this.setState({
             movieList: response.data.Search,
             totalResults: Number(response.data.totalResults),
-            isLoading: false,
             pageNumber: Number(pageNumber),
+            isLoading: false,
             previousSearch: search,
             errorMessage: ""
           });
@@ -84,6 +84,7 @@ class App extends Component {
   };
 
   activateMovie = e => {
+    console.log(e.target.value);
     this.setState({ movieId: Number(e.target.value) });
   };
 
@@ -126,7 +127,7 @@ class App extends Component {
         component: (
           <List
             arr={movieList}
-            onClick={this.getMovieData}
+            onClick={this.activateMovie}
             active={activeMovie.imdbID}
             errorMessage={errorMessage}
             isLoading={isLoading}
@@ -151,7 +152,7 @@ class App extends Component {
           <ControlPanel data={controlPanelItems} />
         </Aside>
         <Section>
-          <Movie id={movieId} data={activeMovie} isLoading={isMovieLoading} />
+          <Movie id={movieId} />
         </Section>
       </Main>
     );
