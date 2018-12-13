@@ -8,7 +8,7 @@ import {
   PaginationController,
   SearchController
 } from "./Components";
-import { Page, Aside, Main } from "./Layout";
+import { Main, Aside, Section } from "./Layout";
 
 class App extends Component {
   state = {
@@ -146,14 +146,14 @@ class App extends Component {
     ];
 
     return (
-      <Page>
+      <Main>
         <Aside>
           <ControlPanel data={controlPanelItems} />
         </Aside>
-        <Main>
+        <Section>
           <Movie id={movieId} data={activeMovie} isLoading={isMovieLoading} />
-        </Main>
-      </Page>
+        </Section>
+      </Main>
     );
   }
 }

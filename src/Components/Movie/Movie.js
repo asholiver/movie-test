@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./Movie.css";
-import { Container, EmptyElement, Loader, MovieDetail } from "..";
+import { EmptyElement, Loader, MovieDetail } from "..";
 
 const Movie = ({ data, isLoading }) => {
   const arr = [
@@ -28,27 +28,25 @@ const Movie = ({ data, isLoading }) => {
   if (isLoading) return <Loader isAlt={true} />;
 
   return (
-    <Container>
-      <div className="c-movie-container">
-        <div className="c-movie__item">
-          {data.length === 0 ? (
-            <EmptyElement text="No movie selected" size="large" />
-          ) : (
-            <Fragment>
-              <h3>{data.Title}</h3>
-              <p>{data.Genre}</p>
-              <p>{data.Plot}</p>
-              {arr.map((item, index) => (
-                <MovieDetail key={index} item={item} />
-              ))}
-            </Fragment>
-          )}
-        </div>
-        <div className="c-movie__item">
-          <img className="c-image" alt={data.Title} src={data.Poster} />
-        </div>
+    <div className="c-movie-container">
+      <div className="c-movie__item">
+        {data.length === 0 ? (
+          <EmptyElement text="No movie selected" size="large" />
+        ) : (
+          <Fragment>
+            <h3 className="c-movie__title">{data.Title}</h3>
+            <p>{data.Genre}</p>
+            <p>{data.Plot}</p>
+            {arr.map((item, index) => (
+              <MovieDetail key={index} item={item} />
+            ))}
+          </Fragment>
+        )}
       </div>
-    </Container>
+      <div className="c-movie__item">
+        <img className="c-image" alt={data.Title} src={data.Poster} />
+      </div>
+    </div>
   );
 };
 

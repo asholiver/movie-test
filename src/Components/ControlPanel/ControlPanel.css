@@ -1,8 +1,10 @@
 .c-control-panel {
+    background-color:var(--g-color-secondary);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    padding: var(--g-spacing);
 }
 
 .c-control-panel__item--large {

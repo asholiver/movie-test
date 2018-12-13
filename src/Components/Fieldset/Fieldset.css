@@ -1,13 +1,6 @@
-.l-container {
-    padding: var(--g-spacing);
 
-}
-
-.l-container--small {
-    padding: var(--g-spacing-x-small);
-}
-
-
-.l-container--large {
-    padding: var(--g-spacing-large);
+.c-fieldset__legend {
+    color: var(--g-color-text);
+    font-weight: lighter;
+    margin-bottom: var(--g-spacing-2x-small);
 }

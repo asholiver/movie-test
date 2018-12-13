@@ -1,9 +1,15 @@
 .c-movie-container {
+    background-color:var(--g-color-primary);
     animation: opacity-fade-in 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
     display: flex;
+    padding: var(--g-spacing-x-large);
 }
 
 .c-movie__item:first-child {
     flex-grow: 1;
     margin-right: var(--g-spacing);
+}
+
+.c-movie__title {
+    font-size: var(--g-font-size-x-large);
 }
