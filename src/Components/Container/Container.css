@@ -1,13 +1,13 @@
 .l-container {
-    padding: 1rem;
+    padding: var(--g-spacing);
 
 }
 
 .l-container--small {
-    padding: 0.5rem;
+    padding: var(--g-spacing-x-small);
 }
 
 
 .l-container--large {
-    padding: 1.5rem;
+    padding: var(--g-spacing-large);
 }

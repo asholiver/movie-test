@@ -1,13 +1,21 @@
-.l-container {
-    padding: 1rem;
-
+.c-control-panel__pagination {
+    align-items: center;
+    display: flex;
 }
 
-.l-container--small {
-    padding: 0.5rem;
+.c-control-panel__pagination-info {
+    text-align: center;
+    flex-grow: 1;
 }
 
+.c-control-panel__button {
+    color: var(--g-color-highlight);
+}
 
-.l-container--large {
-    padding: 1.5rem;
+.c-control-panel__button-left {
+    transform: rotate(180deg);
+}
+
+.c-control-panel__button:disabled {
+    color: var(--g-color-primary);
 }

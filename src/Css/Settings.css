@@ -13,5 +13,12 @@
     --g-spacing-2x-large: 2.5rem;
     --g-spacing-3x-large: 3rem;
 
+    --g-font-size-small: 0.75rem;
+    --g-font-size: 1rem;
+
+    --g-border-radius: 5px;
+
+    --g-loader-size: 5rem;
+
     background-color: var(--g-color-primary);
 }

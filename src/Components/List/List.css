@@ -4,12 +4,12 @@
 
 .c-list-item {
     background-color: var(--g-color-primary);
-    border-radius: 5px;
+    border-radius: var(--g-border-radius);
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--g-spacing-x-small);
     position: relative;
-    padding: 0.5rem;
+    padding: var(--g-spacing-x-small);
 }
 
 .c-list-item__trigger {
@@ -41,13 +41,13 @@
 }
 
 .c-list-item__title {
-    font-size: 1rem;
+    font-size: var(--g-font-size);
     flex-grow: 1;
 }
 
 .c-list-item__info {
     text-align: right;
-    font-size: 0.75rem;
+    font-size: var(--g-font-size-small);
 }
 
 .c-list-item__icon {

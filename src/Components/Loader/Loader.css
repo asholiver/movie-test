@@ -18,10 +18,10 @@
 
 .c-loader::after {
     border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
+    height: var(--g-loader-size);
+    width: var(--g-loader-size);
     animation: spin 1s infinite linear;
-    border: 0.25rem solid var(--g-color-secondary);
+    border: var(--g-spacing-2x-small) solid var(--g-color-secondary);
     border-top-color: var(--g-color-text);
     content: '';
 }

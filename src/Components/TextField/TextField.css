@@ -1,5 +1,4 @@
 .c-form-field {
-
     display: flex;
     flex-direction: column;
     margin-bottom: var(--g-spacing);
@@ -9,8 +8,8 @@
 .c-form-field__input {
     border: none;
     border-radius: var(--g-spacing-2x-small);
-    margin-bottom: var(--g-spacing-2x-small);
     font-size: var(--g-spacing);
+    margin-bottom: var(--g-spacing-2x-small);
     padding: var(--g-spacing-x-small);
 }
 
