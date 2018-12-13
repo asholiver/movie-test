@@ -1,21 +1,31 @@
-.c-control-panel__pagination {
+.c-pagination {
     align-items: center;
     display: flex;
 }
 
-.c-control-panel__pagination-info {
+.c-pagination__summary {
     text-align: center;
     flex-grow: 1;
 }
 
-.c-control-panel__button {
+.c-pagination__button {
     color: var(--g-color-highlight);
 }
 
-.c-control-panel__button-left {
+.c-pagination__button-left {
     transform: rotate(180deg);
 }
 
-.c-control-panel__button:disabled {
+.c-pagination__button:disabled {
     color: var(--g-color-primary);
+}
+
+.c-pagination__title,
+.c-pagination__info {
+    color: var(--g-color-text);
+}
+
+
+.c-pagination__info {
+    font-size: var(-g-font-size-small);
 }

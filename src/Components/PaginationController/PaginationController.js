@@ -4,25 +4,25 @@ import { ButtonIconOnly } from "..";
 
 const PaginationController = ({ onClick, value, results }) => {
   return (
-    <div className="c-control-panel__pagination">
+    <div className="c-pagination">
       <ButtonIconOnly
         buttonValue={value - 1}
         buttonOnClick={onClick}
         icon="arrow"
-        classes="c-control-panel__button c-control-panel__button-left"
+        classes="c-pagination__button c-pagination__button-left"
         size="x-small"
         helpText="Previous page"
         isDisabled={value === 1}
       />
-      <div className="c-control-panel__pagination-info">
-        <p>Page {value}</p>
-        <span>{results} results</span>
+      <div className="c-pagination__summary">
+        <p className="c-pagination__title">Page {value}</p>
+        <span className="c-pagination__info">{results} results</span>
       </div>
       <ButtonIconOnly
         buttonValue={value + 1}
         buttonOnClick={onClick}
         icon="arrow"
-        classes="c-control-panel__button"
+        classes="c-pagination__button"
         size="x-small"
         helpText="Next page"
         isDisabled={value === results}
