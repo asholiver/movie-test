@@ -10,6 +10,28 @@
     margin-right: var(--g-spacing);
 }
 
+
+.c-movie__info,
+.c-movie__summary,
+.c-movie__title
+ {
+    color: var($g-color-text);
+}
+
 .c-movie__title {
     font-size: var(--g-font-size-x-large);
+}
+
+.c-movie__summary {
+    margin-bottom: var(--g-spacing);
+}
+
+.c-movie__info {
+    font-size: var(--g-font-size-small);
+    margin-bottom: var(--g-spacing-x-large);
+}
+
+.c-movie__image {
+    background-image: ;
+    border-radius: var(--g-border-radius);
 }

@@ -35,8 +35,8 @@ const Movie = ({ data, isLoading }) => {
         ) : (
           <Fragment>
             <h3 className="c-movie__title">{data.Title}</h3>
-            <p>{data.Genre}</p>
-            <p>{data.Plot}</p>
+            <p className="c-movie__info">{data.Genre}</p>
+            <p className="c-movie__summary">{data.Plot}</p>
             {arr.map((item, index) => (
               <MovieDetail key={index} item={item} />
             ))}
@@ -44,7 +44,7 @@ const Movie = ({ data, isLoading }) => {
         )}
       </div>
       <div className="c-movie__item">
-        <img className="c-image" alt={data.Title} src={data.Poster} />
+        <img className="c-movie__image" alt={data.Title} src={data.Poster} />
       </div>
     </div>
   );
