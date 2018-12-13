@@ -1,0 +1,11 @@
+.c-empty-element {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+}
+
+.c-empty-element--large {
+    height: 20rem;
+}
