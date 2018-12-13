@@ -3,6 +3,7 @@ import "./App.css";
 import axios from "axios";
 import {
   Container,
+  ControlPanel,
   List,
   Movie,
   PaginationController,
@@ -39,7 +40,7 @@ class App extends Component {
             movieList: response.data.Search,
             totalResults: Number(response.data.totalResults),
             isLoading: false,
-            pageNumber: pageNumber,
+            pageNumber: Number(pageNumber),
             previousSearch: search
           });
         }
@@ -85,7 +86,7 @@ class App extends Component {
   switchPage = e => {
     const newPage = e.target.value;
     this.setState({ isLoading: !this.state.isLoading });
-    this.getListData(this.state.newSearch, newPage);
+    this.getListData(this.state.previousSearch, newPage);
   };
 
   render() {
@@ -98,42 +99,49 @@ class App extends Component {
       totalResults,
       errorMessage
     } = this.state;
+    const controlPanelItems = [
+      {
+        isVisible: true,
+        component: (
+          <SearchController
+            onSubmit={this.search}
+            onClick={this.handleChange}
+          />
+        )
+      },
+      {
+        isVisible: true,
+        isLarge: true,
+        component: (
+          <List
+            arr={movieList}
+            onClick={this.getMovieData}
+            active={activeMovie.imdbID}
+            errorMessage={errorMessage}
+            isLoading={isLoading}
+          />
+        )
+      },
+      {
+        isVisible: totalResults > 10,
+        component: (
+          <PaginationController
+            onClick={this.switchPage}
+            value={pageNumber}
+            results={totalResults}
+          />
+        )
+      }
+    ];
 
     return (
       <div className="l-layout">
-        <div className="l-layout--left">
-          <Container>
-            <div className="c-control-panel">
-              <div className="c-control-panel__item">
-                <SearchController
-                  onSubmit={this.search}
-                  onClick={this.handleChange}
-                />
-              </div>
-              <div className="c-control-panel__item c-control-panel__item--large">
-                <List
-                  arr={movieList}
-                  onClick={this.getMovieData}
-                  active={activeMovie.imdbID}
-                  errorMessage={errorMessage}
-                  isLoading={isLoading}
-                />
-              </div>
-              {totalResults > 10 ? (
-                <div className="c-control-panel__item">
-                  <PaginationController
-                    onClick={this.switchPage}
-                    value={pageNumber}
-                    results={totalResults}
-                  />
-                </div>
-              ) : null}
-            </div>
-          </Container>
-        </div>
-        <div className="l-layout--right">
+        <aside className="l-layout--left">
+          <ControlPanel data={controlPanelItems} />
+        </aside>
+        <main className="l-layout--right">
           <Movie data={activeMovie} isLoading={isMovieLoading} />
-        </div>
+        </main>
       </div>
     );
   }

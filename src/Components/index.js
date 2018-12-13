@@ -1,5 +1,6 @@
 import ButtonIconOnly from "./Buttons";
 import Container from "./Container";
+import ControlPanel from "./ControlPanel";
 import Label from "./Label";
 import { List, ListItem } from "./List";
 import Loader from "./Loader";
@@ -11,6 +12,7 @@ import TextField from "./TextField";
 export {
   ButtonIconOnly,
   Container,
+  ControlPanel,
   Label,
   List,
   ListItem,
