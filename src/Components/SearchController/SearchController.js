@@ -1,12 +1,11 @@
 import React from "react";
 import "./SearchController.css";
-import TextField from "./../TextField";
+import { Fieldset, Form, TextField } from "..";
 
 const SearchController = ({ onSubmit, onClick }) => {
   return (
-    <form onSubmit={onSubmit}>
-      <fieldset>
-        <legend className="h-hide-visually">Search movies</legend>
+    <Form onSubmit={onSubmit}>
+      <Fieldset legendText="Search movies" isHidden={true}>
         <TextField
           label="Search movies"
           isLabelHidden={true}
@@ -15,8 +14,8 @@ const SearchController = ({ onSubmit, onClick }) => {
           onChange={onClick}
           placeholder="Search movies"
         />
-      </fieldset>
-    </form>
+      </Fieldset>
+    </Form>
   );
 };
 
