@@ -1,6 +1,6 @@
 import React from "react";
 import "./PaginationController.css";
-import ButtonIconOnly from "./../Buttons";
+import { ButtonIconOnly } from "..";
 
 const PaginationController = ({ onClick, value, results }) => {
   return (

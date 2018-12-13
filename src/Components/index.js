@@ -4,6 +4,7 @@ import ControlPanel from "./ControlPanel";
 import EmptyElement from "./EmptyElement";
 import Fieldset from "./Fieldset";
 import Form from "./Form";
+import Input from "./Input";
 import Label from "./Label";
 import { List, ListItem } from "./List";
 import Loader from "./Loader";
@@ -19,6 +20,7 @@ export {
   EmptyElement,
   Fieldset,
   Form,
+  Input,
   Label,
   List,
   ListItem,
