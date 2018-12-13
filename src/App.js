@@ -30,7 +30,6 @@ class App extends Component {
         `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
       )
       .then(response => {
-        console.log(response);
         if (response.data.Error) {
           this.setState({
             errorMessage: response.data.Error,
