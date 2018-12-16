@@ -56,5 +56,5 @@
 }
 
 .c-list-item.is-active .c-list-item__icon  {
-    animation: opacity-fade-in 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+    opacity: 1;
 }

@@ -13,12 +13,10 @@ import { Main, Aside, Section } from "./Layout";
 class App extends Component {
   state = {
     newSearch: "",
-    activeMovie: [],
     isLoading: false,
     movieList: [],
     totalResults: 0,
     pageNumber: 1,
-    isMovieLoading: false,
     previousSearch: "",
     errorMessage: "",
     movieId: ""
@@ -84,8 +82,7 @@ class App extends Component {
   };
 
   activateMovie = e => {
-    console.log(e.target.value);
-    this.setState({ movieId: Number(e.target.value) });
+    this.setState({ movieId: e.target.value });
   };
 
   search = e => {
@@ -102,10 +99,8 @@ class App extends Component {
 
   render() {
     const {
-      activeMovie,
       movieList,
       isLoading,
-      isMovieLoading,
       pageNumber,
       totalResults,
       errorMessage,
@@ -128,7 +123,7 @@ class App extends Component {
           <List
             arr={movieList}
             onClick={this.activateMovie}
-            active={activeMovie.imdbID}
+            active={movieId}
             errorMessage={errorMessage}
             isLoading={isLoading}
           />

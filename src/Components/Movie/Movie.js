@@ -8,27 +8,50 @@ class Movie extends Component {
     activeMovie: [],
     isLoading: false,
     previousMovies: [],
-    movieId: this.props.id
+    id: ""
   };
 
-  componentDidMount = () => {
-    console.log(`movie - ${this.state.movieId}`);
-    const id = this.state.movieId;
-    if (id) {
-      this.setState({ isLoading: !this.state.isLoading });
-      axios
-        .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
-        .then(response => {
-          console.log(response);
-          this.setState({
-            activeMovie: response.data,
-            isLoading: !this.state.isLoading
-          });
-        })
-        .catch(function(error) {
-          // handle error
-          console.log(error);
+  updateArray = () => {
+    let newArray = this.state.previousMovies;
+    newArray.push(this.state.activeMovie);
+    this.setState({
+      previousMovies: newArray
+    });
+  };
+
+  handleData = async id => {
+    this.setState({ isLoading: !this.state.isLoading });
+    await axios
+      .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
+      .then(response => {
+        this.setState({
+          id: id,
+          activeMovie: response.data,
+          isLoading: !this.state.isLoading
         });
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
+    this.updateArray();
+  };
+
+  findMovieById = (array, id) => {
+    return array.find(element => {
+      return element.imdbID === id;
+    });
+  };
+
+  componentWillReceiveProps = props => {
+    const id = props.id;
+    const searchedBeforeEl = this.findMovieById(this.state.previousMovies, id);
+    if (id !== this.state.id) {
+      if (searchedBeforeEl) {
+        this.setState({ activeMovie: searchedBeforeEl, id });
+      } else {
+        this.handleData(id);
+      }
     }
   };
 
