@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import "./Movie.css";
 import axios from "axios";
-import { EmptyElement, Loader, MovieDetail } from "..";
 import { Div, Image, Para, Title } from "./../../Elements";
+import { EmptyElement, Loader, MovieDetail } from "..";
 
 class Movie extends Component {
   state = {
