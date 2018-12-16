@@ -60,23 +60,6 @@ class App extends Component {
     this.getListData("big");
   };
 
-  getMovieData = e => {
-    const id = e.target.value;
-    this.setState({ isMovieLoading: !this.state.isMovieLoading });
-    axios
-      .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
-      .then(response => {
-        this.setState({
-          activeMovie: response.data,
-          isMovieLoading: !this.state.isMovieLoading
-        });
-      })
-      .catch(function(error) {
-        // handle error
-        console.log(error);
-      });
-  };
-
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };

@@ -1,7 +1,7 @@
 import React from "react";
 
-const Para = ({ children, classes }) => {
-  return <p className={classes}>{children}</p>;
+const Para = ({ children, className }) => {
+  return <p className={className}>{children}</p>;
 };
 
 export default Para;

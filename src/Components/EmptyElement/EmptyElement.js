@@ -1,6 +1,7 @@
 import React from "react";
 import "./EmptyElement.css";
 import classNames from "classnames";
+import { Div, Para } from "..";
 
 const EmptyElement = ({ text, size }) => {
   const classes = classNames({
@@ -8,9 +9,9 @@ const EmptyElement = ({ text, size }) => {
     [`c-empty-element--${size}`]: size == null ? false : true
   });
   return (
-    <div className={classes}>
-      <p>{text}</p>
-    </div>
+    <Div className={classes}>
+      <Para>{text}</Para>
+    </Div>
   );
 };
 

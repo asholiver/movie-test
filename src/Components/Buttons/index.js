@@ -1,2 +1,3 @@
 import ButtonIconOnly from "./ButtonIconOnly";
-export default ButtonIconOnly;
+import ButtonOverlay from "./ButtonOverlay";
+export { ButtonIconOnly, ButtonOverlay };

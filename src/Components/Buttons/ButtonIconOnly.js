@@ -1,5 +1,5 @@
 import React from "react";
-import "./ButtonIconOnly.css";
+import "./Button.css";
 import { Icon } from "..";
 
 const ButtonIconOnly = ({

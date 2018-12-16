@@ -12,17 +12,6 @@
     padding: var(--g-spacing-x-small);
 }
 
-.c-movie-list-item__trigger {
-    background-color: transparent;
-    border: none;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-}
-
 .c-movie-list-item:hover,
 .c-movie-list-item:focus {
   opacity: 0.8;

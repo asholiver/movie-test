@@ -1,6 +1,7 @@
 import React from "react";
 import "./Loader.css";
 import classNames from "classnames";
+import { Div } from "..";
 
 const Loader = ({ size, children, isAlt }) => {
   const classes = classNames({
@@ -8,9 +9,9 @@ const Loader = ({ size, children, isAlt }) => {
     "c-loader-container--alt": isAlt
   });
   return (
-    <div className={classes}>
-      <div className="c-loader" />
-    </div>
+    <Div className={classes}>
+      <Div className="c-loader" />
+    </Div>
   );
 };
 

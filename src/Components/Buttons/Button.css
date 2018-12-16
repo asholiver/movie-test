@@ -6,3 +6,15 @@
     margin: var(--g-spacing-2x-small);
     padding: var(--g-spacing-2x-small);
 }
+
+
+.c-button-overlay {
+    background-color: transparent;
+    border: none;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
