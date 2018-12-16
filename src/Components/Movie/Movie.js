@@ -97,7 +97,7 @@ class Movie extends Component {
           <Fragment>
             <Div className="c-movie__item">
               <Title text={activeMovie.Title} />
-              <Para classes="c-movie__info">{activeMovie.Genre}</Para>
+              <Para className="c-movie__info">{activeMovie.Genre}</Para>
               {arr.map((item, index) => (
                 <MovieDetail key={index} item={item} />
               ))}

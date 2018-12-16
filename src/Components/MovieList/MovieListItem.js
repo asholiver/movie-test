@@ -15,7 +15,7 @@ const MovieListItem = ({ onClick, title, year, value, isActive }) => {
         <Icon icon="star" classes="c-movie-list-item__icon" size="x-small" />
       </Div>
 
-      <Para classes="c-movie-list-item__info">{year}</Para>
+      <Para className="c-movie-list-item__info">{year}</Para>
       <ButtonOverlay
         onClick={onClick}
         value={value}
