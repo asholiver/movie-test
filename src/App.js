@@ -3,8 +3,8 @@ import "./App.css";
 import axios from "axios";
 import {
   ControlPanel,
-  List,
   Movie,
+  MovieList,
   PaginationController,
   SearchController
 } from "./Components";
@@ -120,7 +120,7 @@ class App extends Component {
         isVisible: true,
         isLarge: true,
         component: (
-          <List
+          <MovieList
             arr={movieList}
             onClick={this.activateMovie}
             active={movieId}

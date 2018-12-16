@@ -7,9 +7,9 @@ import { Icon, Icons } from "./icons";
 import Image from "./Image";
 import Input from "./Input";
 import Label from "./Label";
-import { List, ListItem } from "./List";
 import Loader from "./Loader";
 import { Movie, MovieDetail } from "./Movie";
+import { MovieList, MovieListItem } from "./MovieList";
 import PaginationController from "./PaginationController";
 import Para from "./Para";
 import SearchController from "./SearchController";
@@ -27,11 +27,11 @@ export {
   Image,
   Input,
   Label,
-  List,
-  ListItem,
   Loader,
   Movie,
   MovieDetail,
+  MovieList,
+  MovieListItem,
   PaginationController,
   Para,
   SearchController,

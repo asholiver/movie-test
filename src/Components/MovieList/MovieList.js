@@ -1,15 +1,22 @@
 import React from "react";
-import "./List.css";
-import { EmptyElement, Loader, ListItem } from "..";
+import "./MovieList.css";
+import { EmptyElement, Loader, MovieListItem } from "..";
 
-const List = ({ arr, isOrdered, onClick, active, isLoading, errorMessage }) => {
+const MovieList = ({
+  arr,
+  isOrdered,
+  onClick,
+  active,
+  isLoading,
+  errorMessage
+}) => {
   const Tag = isOrdered ? "ol" : "ul";
   if (isLoading) return <Loader />;
   if (errorMessage) return <EmptyElement text={errorMessage} />;
   return (
-    <Tag className="c-list">
+    <Tag className="c-movie-list">
       {arr.map((item, index) => (
-        <ListItem
+        <MovieListItem
           key={index}
           onClick={onClick}
           title={item.Title}
@@ -22,4 +29,4 @@ const List = ({ arr, isOrdered, onClick, active, isLoading, errorMessage }) => {
   );
 };
 
-export default List;
+export default MovieList;

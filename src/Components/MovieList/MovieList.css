@@ -1,8 +1,8 @@
-.c-list {
+.c-movie-list {
     animation: opacity-fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
 }
 
-.c-list-item {
+.c-movie-list-item {
     background-color: var(--g-color-primary);
     border-radius: var(--g-border-radius);
     display: flex;
@@ -12,7 +12,7 @@
     padding: var(--g-spacing-x-small);
 }
 
-.c-list-item__trigger {
+.c-movie-list-item__trigger {
     background-color: transparent;
     border: none;
     bottom: 0;
@@ -23,33 +23,33 @@
     width: 100%;
 }
 
-.c-list-item:hover,
-.c-list-item:focus {
+.c-movie-list-item:hover,
+.c-movie-list-item:focus {
   opacity: 0.8;
 }
 
-.c-list-item__title-container {
+.c-movie-list-item__title-container {
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding-bottom: var(--g-spacing-x-small);
 }
 
-.c-list-item__title {
+.c-movie-list-item__title {
     flex-grow: 1;
 }
 
-.c-list-item__info {
+.c-movie-list-item__info {
      color: var(--g-color-text);
     text-align: right;
     font-size: var(--g-font-size-small);
 }
 
-.c-list-item__icon {
+.c-movie-list-item__icon {
     color: var(--g-color-highlight);
     opacity: 0;
 }
 
-.c-list-item.is-active .c-list-item__icon  {
+.c-movie-list-item.is-active .c-movie-list-item__icon  {
     opacity: 1;
 }
