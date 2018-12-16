@@ -1,0 +1,10 @@
+
+.c-title {
+    color: var($g-color-text);
+    font-size: var(--g-font-size-x-large);
+}
+
+
+.c-title--small {
+    font-size: var(--g-font-size);
+}
