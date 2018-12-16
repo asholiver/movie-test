@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieList.css";
 import classNames from "classnames";
-import { ButtonOverlay, Div, Icon, Li, Para, Title } from "..";
+import { ButtonOverlay, Div, Icon, Li, Para, Title } from "./../../Elements";
 
 const MovieListItem = ({ onClick, title, year, value, isActive }) => {
   const classes = classNames({

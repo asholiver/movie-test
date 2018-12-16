@@ -1,22 +1,23 @@
 import React from "react";
 import "./ControlPanel.css";
+import { Div } from "./../../Elements";
 
 const ControlPanel = ({ data }) => {
   return (
-    <div className="c-control-panel">
+    <Div className="c-control-panel">
       {data.map((item, index) => [
         item.isVisible ? (
-          <div
+          <Div
             key={index}
             className={`c-control-panel__item ${
               item.isLarge ? "c-control-panel__item--large" : ""
             }`}
           >
             {item.component}
-          </div>
+          </Div>
         ) : null
       ])}
-    </div>
+    </Div>
   );
 };
 

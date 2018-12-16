@@ -1,7 +1,7 @@
 import React from "react";
 import "./EmptyElement.css";
 import classNames from "classnames";
-import { Div, Para } from "..";
+import { Div, Para } from "./../../Elements";
 
 const EmptyElement = ({ text, size }) => {
   const classes = classNames({

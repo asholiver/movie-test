@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { Icons } from "./Components";
+import { Icons } from "./Elements";
 import "./Css/Helpers.css";
 import "./Css/Keyframes.css";
 import "./Css/Resets.css";

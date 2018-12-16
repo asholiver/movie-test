@@ -1,7 +1,7 @@
 import React from "react";
 import "./Loader.css";
 import classNames from "classnames";
-import { Div } from "..";
+import { Div } from "./../../Elements";
 
 const Loader = ({ size, children, isAlt }) => {
   const classes = classNames({

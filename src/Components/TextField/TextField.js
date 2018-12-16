@@ -1,6 +1,6 @@
 import React from "react";
 import "./TextField.css";
-import { Input, Label } from "..";
+import { Div, Input, Label } from "./../../Elements";
 import classNames from "classnames";
 
 const TextField = ({
@@ -18,10 +18,18 @@ const TextField = ({
     "is-invalid": isInvalid
   });
   return (
-    <div className={getClasses}>
+    <Div className={getClasses}>
       <Label name={name} text={label} isLabelHidden={isLabelHidden} />
-      <Input classes="c-form-field__input" id={name} type={type == null ? "text" : type} name={name} onChange={onChange} value={value} placeholder={placeholder} />
-    </div>
+      <Input
+        classes="c-form-field__input"
+        id={name}
+        type={type == null ? "text" : type}
+        name={name}
+        onChange={onChange}
+        value={value}
+        placeholder={placeholder}
+      />
+    </Div>
   );
 };
 

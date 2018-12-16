@@ -1,6 +1,6 @@
 import React from "react";
 import "./Movie.css";
-import { Para, Strong } from "..";
+import { Para, Strong } from "./../../Elements";
 
 const MovieDetail = ({ item }) => {
   return (
