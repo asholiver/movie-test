@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: var(--g-spacing);
+    height: 100%;
 }
 
 .c-control-panel__item--large {
