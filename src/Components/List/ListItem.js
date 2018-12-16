@@ -1,7 +1,7 @@
 import React from "react";
 import "./List.css";
 import classNames from "classnames";
-import { Icon } from "./../icons";
+import { Icon, Title } from "..";
 
 const ListItem = ({ onClick, title, year, value, isActive }) => {
   const classes = classNames({
@@ -11,7 +11,7 @@ const ListItem = ({ onClick, title, year, value, isActive }) => {
   return (
     <li className={classes}>
       <div className="c-list-item__title-container">
-        <h3 className="c-list-item__title">{title}</h3>
+        <Title text={title} size="small" classes="c-list-item__title" />
         <Icon icon="star" classes="c-list-item__icon" size="x-small" />
       </div>
 

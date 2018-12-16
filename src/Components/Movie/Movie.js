@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./Movie.css";
 import axios from "axios";
-import { EmptyElement, Loader, MovieDetail } from "..";
+import { EmptyElement, Image, Loader, MovieDetail, Title } from "..";
 
 class Movie extends Component {
   state = {
@@ -60,6 +60,11 @@ class Movie extends Component {
 
     const arr = [
       {
+        title: "Plot",
+        detail: activeMovie.Plot,
+        isTitleHidden: true
+      },
+      {
         title: "Language",
         detail: activeMovie.Language
       },
@@ -90,19 +95,14 @@ class Movie extends Component {
         ) : (
           <Fragment>
             <div className="c-movie__item">
-              <h3 className="c-movie__title">{activeMovie.Title}</h3>
+              <Title text={activeMovie.Title} />
               <p className="c-movie__info">{activeMovie.Genre}</p>
-              <p className="c-movie__summary">{activeMovie.Plot}</p>
               {arr.map((item, index) => (
                 <MovieDetail key={index} item={item} />
               ))}
             </div>
             <div className="c-movie__item">
-              <img
-                className="c-movie__image"
-                alt={activeMovie.Title}
-                src={activeMovie.Poster}
-              />
+              <Image alt={activeMovie.Title} src={activeMovie.Poster} />
             </div>
           </Fragment>
         )}

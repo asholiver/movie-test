@@ -4,7 +4,7 @@ import "./Movie.css";
 const MovieDetail = ({ item }) => {
   return (
     <p className="c-movie__summary">
-      <strong>{item.title}: </strong>
+      {!item.isTitleHidden ? <strong>{item.title}: </strong> : null}
       {item.detail}.
     </p>
   );
