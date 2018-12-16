@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./Movie.css";
 import axios from "axios";
-import { EmptyElement, Image, Loader, MovieDetail, Title } from "..";
+import { EmptyElement, Image, Loader, MovieDetail, Para, Title } from "..";
 
 class Movie extends Component {
   state = {
@@ -96,7 +96,7 @@ class Movie extends Component {
           <Fragment>
             <div className="c-movie__item">
               <Title text={activeMovie.Title} />
-              <p className="c-movie__info">{activeMovie.Genre}</p>
+              <Para classes="c-movie__info">{activeMovie.Genre}</Para>
               {arr.map((item, index) => (
                 <MovieDetail key={index} item={item} />
               ))}

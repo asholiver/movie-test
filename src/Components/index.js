@@ -11,7 +11,9 @@ import { List, ListItem } from "./List";
 import Loader from "./Loader";
 import { Movie, MovieDetail } from "./Movie";
 import PaginationController from "./PaginationController";
+import Para from "./Para";
 import SearchController from "./SearchController";
+import Strong from "./Strong";
 import TextField from "./TextField";
 import Title from "./Title";
 export {
@@ -31,7 +33,9 @@ export {
   Movie,
   MovieDetail,
   PaginationController,
+  Para,
   SearchController,
+  Strong,
   TextField,
   Title
 };

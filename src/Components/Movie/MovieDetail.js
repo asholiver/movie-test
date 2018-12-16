@@ -1,12 +1,13 @@
 import React from "react";
 import "./Movie.css";
+import { Para, Strong } from "..";
 
 const MovieDetail = ({ item }) => {
   return (
-    <p className="c-movie__summary">
-      {!item.isTitleHidden ? <strong>{item.title}: </strong> : null}
+    <Para classes="c-movie__summary">
+      {!item.isTitleHidden ? <Strong text={`${item.title}: `} /> : null}
       {item.detail}.
-    </p>
+    </Para>
   );
 };
 
