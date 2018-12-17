@@ -4,10 +4,9 @@ import { Para, Strong } from "./../../Elements";
 
 const MovieDetail = ({ item }) => {
   return (
-    <Para className="c-movie__summary">
-      {!item.isTitleHidden ? <Strong text={`${item.title}: `} /> : null}
-      {item.detail}.
-    </Para>
+    <p className="c-movie__summary">
+      <strong>{item.title}:</strong> {item.detail}.
+    </p>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./Movie.css";
 import axios from "axios";
-import { Div, Image, Para, Title } from "./../../Elements";
+import { Image, Title } from "./../../Elements";
 import { EmptyElement, Loader, MovieDetail } from "..";
 
 class Movie extends Component {
@@ -104,26 +104,25 @@ class Movie extends Component {
     ];
 
     if (isLoading) return <Loader isAlt={true} />;
-    console.log(activeMovie);
     return (
-      <Div className="c-movie-container">
+      <div className="c-movie-container">
         {activeMovie.length === 0 ? (
           <EmptyElement text="No movie selected" size="large" />
         ) : (
           <Fragment>
-            <Div className="c-movie__item">
+            <div className="c-movie__item">
               <Title text={activeMovie.Title} />
-              <Para className="c-movie__info">{activeMovie.Genre}</Para>
+              <p className="c-movie__info">{activeMovie.Genre}</p>
               {arr.map((item, index) => (
                 <MovieDetail key={index} item={item} />
               ))}
-            </Div>
-            <Div className="c-movie__item">
+            </div>
+            <div className="c-movie__item">
               <Image alt={activeMovie.Title} src={activeMovie.Poster} />
-            </Div>
+            </div>
           </Fragment>
         )}
-      </Div>
+      </div>
     );
   }
 }

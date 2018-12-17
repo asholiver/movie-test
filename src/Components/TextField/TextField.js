@@ -1,6 +1,6 @@
 import React from "react";
 import "./TextField.css";
-import { Div, Input, Label } from "./../../Elements";
+import { Input, Label } from "./../../Elements";
 import classNames from "classnames";
 
 const TextField = ({
@@ -18,7 +18,7 @@ const TextField = ({
     "is-invalid": isInvalid
   });
   return (
-    <Div className={getClasses}>
+    <div className={getClasses}>
       <Label name={name} text={label} isLabelHidden={isLabelHidden} />
       <Input
         classes="c-form-field__input"
@@ -29,7 +29,7 @@ const TextField = ({
         value={value}
         placeholder={placeholder}
       />
-    </Div>
+    </div>
   );
 };
 
