@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import {
   ControlPanel,
-  Movie,
+  MovieContainer,
   MovieList,
   PaginationController,
   SearchController
 } from "./components";
-import { Main, Aside, Section } from "./Layout";
+import { Main, Aside, Section } from "./layout";
 
 class App extends Component {
   state = {
@@ -61,6 +61,8 @@ class App extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    this.setState({ isLoading: !this.state.isLoading, totalResults: 0 });
+    this.getListData(e.target.value);
   };
 
   activateMovie = e => {
@@ -129,7 +131,7 @@ class App extends Component {
           <ControlPanel data={controlPanelItems} />
         </Aside>
         <Section>
-          <Movie id={movieId} />
+          <MovieContainer id={movieId} />
         </Section>
       </Main>
     );
