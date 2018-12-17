@@ -2,7 +2,7 @@ import ControlPanel from "./ControlPanel";
 import EmptyElement from "./EmptyElement";
 import ImagePlaceholder from "./ImagePlaceholder";
 import Loader from "./Loader";
-import { Movie, MovieContainer, MovieDetail } from "./Movie";
+import { Movie, MovieDetail } from "./Movie";
 import { MovieList, MovieListItem } from "./MovieList";
 import {
   PaginationController,
@@ -16,7 +16,6 @@ export {
   Loader,
   ImagePlaceholder,
   Movie,
-  MovieContainer,
   MovieDetail,
   MovieList,
   MovieListItem,

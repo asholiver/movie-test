@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Movie.css";
+import "./../components/Movie/Movie.css";
 import axios from "axios";
-import { EmptyElement, Loader, Movie } from "..";
-import { API_URL } from "./../../config";
+import { EmptyElement, Loader, Movie } from "../components";
+import { API_URL } from "../config";
 
 class MovieContainer extends Component {
   state = {

@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import {
   ControlPanel,
-  MovieContainer,
   MovieList,
   PaginationController,
   SearchController
 } from "./../components";
 import { Main, Aside, Section } from "./../layout";
 import { API_URL } from "./../config";
+import MovieContainer from "./MovieContainer";
 
 class App extends Component {
   state = {
