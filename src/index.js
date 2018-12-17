@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./index.css";
 import { Icons } from "./elements";
-import "./css/Helpers.css";
-import "./css/Keyframes.css";
 import "./css/Resets.css";
 import "./css/Settings.css";
+import "./css/Keyframes.css";
+import "./css/Helpers.css";
+import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

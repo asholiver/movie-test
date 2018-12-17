@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Movie.css";
 import axios from "axios";
 import { EmptyElement, Loader, Movie } from "..";
+import { API_URL } from "./../../config";
 
 class MovieContainer extends Component {
   state = {
@@ -22,7 +23,7 @@ class MovieContainer extends Component {
   getData = async id => {
     this.setState({ isLoading: !this.state.isLoading });
     await axios
-      .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
+      .get(`${API_URL}i=${id}`)
       .then(response => {
         const data = response.data;
         this.setState({
@@ -70,6 +71,7 @@ class MovieContainer extends Component {
 
   render() {
     const { isLoading, activeMovie } = this.state;
+    console.log(activeMovie);
     if (isLoading) return <Loader isAlt={true} />;
     return (
       <div className="c-movie-container">
