@@ -1,2 +1,3 @@
 import PaginationController from "./PaginationController";
-export default PaginationController;
+import PaginationSummary from "./PaginationSummary";
+export { PaginationController, PaginationSummary };

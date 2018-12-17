@@ -1,6 +1,7 @@
 import React from "react";
 import "./PaginationController.css";
 import { ButtonIconOnly } from "./../../elements";
+import { PaginationSummary } from "..";
 
 const PaginationController = ({ onClick, value, results }) => {
   return (
@@ -14,10 +15,7 @@ const PaginationController = ({ onClick, value, results }) => {
         helpText="Previous page"
         isDisabled={value === 1}
       />
-      <div className="c-pagination__summary">
-        <p className="c-pagination__title">Page {value}</p>
-        <span className="c-pagination__info">{results} results</span>
-      </div>
+      <PaginationSummary value={value} results={results} />
       <ButtonIconOnly
         buttonValue={value + 1}
         buttonOnClick={onClick}

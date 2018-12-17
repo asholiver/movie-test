@@ -3,7 +3,10 @@ import EmptyElement from "./EmptyElement";
 import Loader from "./Loader";
 import { Movie, MovieContainer, MovieDetail } from "./Movie";
 import { MovieList, MovieListItem } from "./MovieList";
-import PaginationController from "./PaginationController";
+import {
+  PaginationController,
+  PaginationSummary
+} from "./PaginationController";
 import SearchController from "./SearchController";
 import TextField from "./TextField";
 export {
@@ -16,6 +19,7 @@ export {
   MovieList,
   MovieListItem,
   PaginationController,
+  PaginationSummary,
   SearchController,
   TextField
 };
