@@ -20,3 +20,9 @@
     height: var(--g-spacing);
     width: var(--g-spacing);
 }
+
+
+.c-icon--large {
+    height: var(--g-spacing-4x-large);
+    width: var(--g-spacing-4x-large);
+}

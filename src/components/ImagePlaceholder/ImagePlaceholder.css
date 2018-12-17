@@ -1,0 +1,10 @@
+.c-image-placeholder {
+    border-radius: var(--g-border-radius);
+    border: 2px solid var(--g-color-secondary);
+    color: var(--g-color-secondary);
+    display: flex;
+    align-items: center;
+    height: 27.5rem;
+    justify-content: center;
+    width: 18.5rem;
+}

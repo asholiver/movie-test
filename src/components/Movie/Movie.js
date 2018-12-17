@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./Movie.css";
 import { Image, Heading } from "./../../elements";
-import { MovieDetail } from "..";
+import { MovieDetail, ImagePlaceholder } from "..";
 
 const Movie = ({ data }) => {
   return (
@@ -15,7 +15,11 @@ const Movie = ({ data }) => {
         ))}
       </div>
       <div className="c-movie__item">
-        <Image alt={data.Title} src={data.Poster} />
+        {data.Poster !== "N/A" ? (
+          <Image alt={data.Title} src={data.Poster} />
+        ) : (
+          <ImagePlaceholder />
+        )}
       </div>
     </Fragment>
   );

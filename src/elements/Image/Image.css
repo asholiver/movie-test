@@ -1,3 +1,7 @@
 .c-image {
     border-radius: var(--g-border-radius);
+    height: 27.5rem;
+    width: 18.5rem;
 }
+
+
