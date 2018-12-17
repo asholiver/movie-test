@@ -1,6 +1,6 @@
 import React from "react";
 import "./TextField.css";
-import { Input, Label } from "./../../elements";
+import { Input, Label } from "..";
 import classNames from "classnames";
 
 const TextField = ({

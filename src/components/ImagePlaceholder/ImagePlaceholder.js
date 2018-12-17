@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImagePlaceholder.css";
 import classNames from "classnames";
-import { Icon } from "./../../elements";
+import { Icon } from "..";
 
 const ImagePlaceholder = () => {
   const classes = classNames({

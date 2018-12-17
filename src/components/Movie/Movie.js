@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import "./Movie.css";
-import { Image, Heading } from "./../../elements";
 import { objectMap } from "./../../utils";
-import { MovieDetail, ImagePlaceholder } from "..";
+import { MovieDetail, ImagePlaceholder, Image, Heading } from "..";
 import { API_EMPTY_TEXT } from "./../../constants";
 
 const Movie = ({ data }) => {
