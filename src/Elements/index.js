@@ -5,7 +5,7 @@ import { Icon, Icons } from "./icons";
 import Image from "./Image";
 import Input from "./Input";
 import Label from "./Label";
-import Title from "./Title";
+import Heading from "./Heading";
 export {
   ButtonIconOnly,
   ButtonOverlay,
@@ -16,5 +16,5 @@ export {
   Image,
   Input,
   Label,
-  Title
+  Heading
 };

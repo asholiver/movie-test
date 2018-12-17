@@ -1,10 +1,15 @@
 
-.c-title {
+.c-heading,
+.c-sub-heading {
     color: var(--g-color-text);
+}
+
+
+.c-heading {
     font-size: var(--g-font-size-x-large);
 }
 
 
-.c-title--small {
+.c-sub-heading {
     font-size: var(--g-font-size);
 }

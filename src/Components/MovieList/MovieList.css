@@ -24,12 +24,17 @@
     padding-bottom: var(--g-spacing-x-small);
 }
 
+.c-movie-list-item__title,
+.c-movie-list-item__info {
+    color: var(--g-color-text);
+}
+
 .c-movie-list-item__title {
     flex-grow: 1;
+    font-size: var(--g-font-size);
 }
 
 .c-movie-list-item__info {
-     color: var(--g-color-text);
     text-align: right;
     font-size: var(--g-font-size-small);
 }

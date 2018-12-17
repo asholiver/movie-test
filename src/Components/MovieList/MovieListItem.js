@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieList.css";
 import classNames from "classnames";
-import { ButtonOverlay, Icon, Title } from "./../../Elements";
+import { ButtonOverlay, Icon } from "./../../Elements";
 
 const MovieListItem = ({ onClick, title, year, value, isActive }) => {
   const classes = classNames({
@@ -11,7 +11,7 @@ const MovieListItem = ({ onClick, title, year, value, isActive }) => {
   return (
     <li className={classes}>
       <div className="c-movie-list-item__title-container">
-        <Title text={title} size="small" classes="c-movie-list-item__title" />
+        <h3 className="c-movie-list-item__title">{title}</h3>
         <Icon icon="star" classes="c-movie-list-item__icon" size="x-small" />
       </div>
 
