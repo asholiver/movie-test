@@ -1,10 +1,10 @@
 import React from "react";
 import "./Movie.css";
 
-const MovieDetail = ({ item }) => {
+const MovieDetail = ({ title, detail }) => {
   return (
     <p className="c-movie__summary">
-      <strong>{item.title}:</strong> {item.detail}.
+      <strong>{title}:</strong> {detail}.
     </p>
   );
 };

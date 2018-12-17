@@ -20,30 +20,27 @@ class Movie extends Component {
     });
   };
 
-  handleData = async id => {
+  getData = async id => {
     this.setState({ isLoading: !this.state.isLoading });
     await axios
       .get(`http://www.omdbapi.com/?apikey=64d9571e&i=${id}`)
       .then(response => {
+        const data = response.data;
         this.setState({
           id: id,
-          //activeMovie: response.data,
-          activeMovie: [
-            {
-              title: response.data.Title,
-              genre: response.data.Genre,
-              details: [
-                {
-                  Plot: response.data.Plot,
-                  Language: response.data.Language,
-                  Director: response.data.Director,
-                  Year: response.data.Year,
-                  Actors: response.data.Actors,
-                  Runtime: response.data.Runtime
-                }
-              ]
+          activeMovie: {
+            Title: data.Title,
+            Genre: data.Genre,
+            Plot: data.Plot,
+            Poster: data.Poster,
+            Details: {
+              Language: data.Language,
+              Director: data.Director,
+              Year: data.Year,
+              Actors: data.Actors,
+              Runtime: data.Runtime
             }
-          ],
+          },
           isLoading: !this.state.isLoading
         });
       })
@@ -67,42 +64,13 @@ class Movie extends Component {
       if (searchedBeforeEl) {
         this.setState({ activeMovie: searchedBeforeEl, id });
       } else {
-        this.handleData(id);
+        this.getData(id);
       }
     }
   };
 
   render() {
     const { isLoading, activeMovie } = this.state;
-
-    const arr = [
-      {
-        title: "Plot",
-        detail: activeMovie.Plot,
-        isTitleHidden: true
-      },
-      {
-        title: "Language",
-        detail: activeMovie.Language
-      },
-      {
-        title: "Director",
-        detail: activeMovie.Director
-      },
-      {
-        title: "Year",
-        detail: activeMovie.Year
-      },
-      {
-        title: "Actors",
-        detail: activeMovie.Actors
-      },
-      {
-        title: "Runtime",
-        detail: activeMovie.Runtime
-      }
-    ];
-
     if (isLoading) return <Loader isAlt={true} />;
     return (
       <div className="c-movie-container">
@@ -113,8 +81,13 @@ class Movie extends Component {
             <div className="c-movie__item">
               <Heading text={activeMovie.Title} />
               <p className="c-movie__info">{activeMovie.Genre}</p>
-              {arr.map((item, index) => (
-                <MovieDetail key={index} item={item} />
+              <p className="c-movie__summary">{activeMovie.Plot}</p>
+              {Object.keys(activeMovie.Details).map((k, index) => (
+                <MovieDetail
+                  key={index}
+                  title={k}
+                  detail={activeMovie.Details[k]}
+                />
               ))}
             </div>
             <div className="c-movie__item">
