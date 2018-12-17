@@ -6,8 +6,9 @@ import {
   MovieList,
   PaginationController,
   SearchController
-} from "./components";
-import { Main, Aside, Section } from "./layout";
+} from "./../components";
+import { Main, Aside, Section } from "./../layout";
+import { API_URL } from "./../config";
 
 class App extends Component {
   state = {
@@ -23,9 +24,7 @@ class App extends Component {
 
   getListData = (search, pageNumber = 1) => {
     axios
-      .get(
-        `http://www.omdbapi.com/?apikey=64d9571e&s=${search}&page=${pageNumber}`
-      )
+      .get(`${API_URL}s=${search}&page=${pageNumber}`)
       .then(response => {
         // deliberately left the ability to empty search for the error to be shown.
         if (response.data.Error) {

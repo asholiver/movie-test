@@ -1,22 +1,14 @@
 
-
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
 *:not(input) {
     border: 0;
     margin: 0;
     padding: 0;
 }
-
-
-ul, ol {
-    list-style: none;
-
-}
-
-
-button {
-    background-color: transparent;
-}
-
 
 html, body {
     height: 100%;
@@ -26,8 +18,21 @@ html {
     box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+  ul, ol {
+    list-style: none;
+
+}
+
+
+button {
+    background-color: transparent;
 }
