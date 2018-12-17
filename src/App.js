@@ -6,7 +6,7 @@ import {
   MovieList,
   PaginationController,
   SearchController
-} from "./Components";
+} from "./components";
 import { Main, Aside, Section } from "./Layout";
 
 class App extends Component {

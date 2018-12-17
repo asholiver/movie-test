@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import { Icons } from "./Elements";
-import "./Css/Helpers.css";
-import "./Css/Keyframes.css";
-import "./Css/Resets.css";
-import "./Css/Settings.css";
+import { Icons } from "./elements";
+import "./css/Helpers.css";
+import "./css/Keyframes.css";
+import "./css/Resets.css";
+import "./css/Settings.css";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

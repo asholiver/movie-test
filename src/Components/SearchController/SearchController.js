@@ -1,6 +1,6 @@
 import React from "react";
 import "./SearchController.css";
-import { Fieldset, Form } from "./../../Elements";
+import { Fieldset, Form } from "./../../elements";
 import { TextField } from "..";
 
 const SearchController = ({ onSubmit, onClick }) => {
