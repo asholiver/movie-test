@@ -60,8 +60,11 @@ class App extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-    this.setState({ isLoading: !this.state.isLoading, totalResults: 0 });
+    this.setState({
+      isLoading: !this.state.isLoading,
+      totalResults: 0,
+      [e.target.name]: e.target.value
+    });
     this.getListData(e.target.value);
   };
 
