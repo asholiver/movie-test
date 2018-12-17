@@ -16,7 +16,7 @@
 .c-movie__summary,
 .c-movie__title
  {
-    color: var($g-color-text);
+    color: var(--g-color-text);
 }
 
 .c-movie__title {

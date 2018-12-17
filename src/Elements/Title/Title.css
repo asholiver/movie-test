@@ -1,6 +1,6 @@
 
 .c-title {
-    color: var($g-color-text);
+    color: var(--g-color-text);
     font-size: var(--g-font-size-x-large);
 }
 

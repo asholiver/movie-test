@@ -1,5 +1,6 @@
 .c-empty-element {
     align-items: center;
+    color: var(--g-color-text);
     display: flex;
     justify-content: center;
     width: 100%;

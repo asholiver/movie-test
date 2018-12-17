@@ -25,6 +25,5 @@
 
 .c-root {
     background-color: var(--g-color-primary);
-    color: var(--g-color-text);
     height: 100%;
 }
