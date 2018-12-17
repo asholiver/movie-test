@@ -27,7 +27,23 @@ class Movie extends Component {
       .then(response => {
         this.setState({
           id: id,
-          activeMovie: response.data,
+          //activeMovie: response.data,
+          activeMovie: [
+            {
+              title: response.data.Title,
+              genre: response.data.Genre,
+              details: [
+                {
+                  Plot: response.data.Plot,
+                  Language: response.data.Language,
+                  Director: response.data.Director,
+                  Year: response.data.Year,
+                  Actors: response.data.Actors,
+                  Runtime: response.data.Runtime
+                }
+              ]
+            }
+          ],
           isLoading: !this.state.isLoading
         });
       })
@@ -88,7 +104,7 @@ class Movie extends Component {
     ];
 
     if (isLoading) return <Loader isAlt={true} />;
-
+    console.log(activeMovie);
     return (
       <Div className="c-movie-container">
         {activeMovie.length === 0 ? (
