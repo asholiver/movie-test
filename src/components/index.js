@@ -7,7 +7,6 @@ import Heading from "./Heading";
 import { Icon, Icons } from "./icons";
 import Image from "./Image";
 import ImagePlaceholder from "./ImagePlaceholder";
-import Input from "./Input";
 import Label from "./Label";
 import Loader from "./Loader";
 import { Movie, MovieDetail } from "./Movie";
@@ -30,7 +29,6 @@ export {
   Icons,
   Image,
   ImagePlaceholder,
-  Input,
   Label,
   Loader,
   Movie,

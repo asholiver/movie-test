@@ -43,7 +43,7 @@ class App extends Component {
           });
         }
       })
-      .catch(function(error) {
+      .catch(error => {
         this.setState({
           errorMessage: "Hmm... something went wrong.",
           isLoading: false
@@ -59,12 +59,13 @@ class App extends Component {
   };
 
   handleChange = e => {
+    const el = e.target;
     this.setState({
       isLoading: !this.state.isLoading,
       totalResults: 0,
-      [e.target.name]: e.target.value
+      [el.name]: el.value
     });
-    this.getListData(e.target.value);
+    this.getListData(el.value);
   };
 
   activateMovie = e => {

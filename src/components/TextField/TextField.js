@@ -1,6 +1,6 @@
 import React from "react";
 import "./TextField.css";
-import { Input, Label } from "..";
+import { Label } from "..";
 import classNames from "classnames";
 
 const TextField = ({
@@ -20,8 +20,8 @@ const TextField = ({
   return (
     <div className={getClasses}>
       <Label name={name} text={label} isLabelHidden={isLabelHidden} />
-      <Input
-        classes="c-form-field__input"
+      <input
+        className="c-form-field__input"
         id={name}
         type={type == null ? "text" : type}
         name={name}

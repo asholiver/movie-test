@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import { Icons } from "./elements";
+import { Icons } from "./components";
 import "./css/Resets.css";
 import "./css/Settings.css";
 import "./css/Keyframes.css";
