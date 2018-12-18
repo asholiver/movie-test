@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./../components/Movie/Movie.css";
 import axios from "axios";
-import { EmptyElement, Loader, Movie } from "../components";
+import { BlankSlate, Loader, Movie } from "../components";
 import { API_URL } from "../config";
 
 class MovieContainer extends Component {
@@ -13,10 +13,8 @@ class MovieContainer extends Component {
   };
 
   updateArray = () => {
-    let newArray = this.state.previousMovies;
-    newArray.push(this.state.activeMovie);
     this.setState({
-      previousMovies: newArray
+      previousMovies: this.state.previousMovies.concat([this.state.activeMovie])
     });
   };
 
@@ -25,42 +23,51 @@ class MovieContainer extends Component {
     await axios
       .get(`${API_URL}i=${id}`)
       .then(response => {
-        const data = response.data;
-        this.setState({
-          id: id,
-          activeMovie: {
-            Title: data.Title,
-            Genre: data.Genre,
-            Plot: data.Plot,
-            Poster: data.Poster,
-            Details: {
-              Language: data.Language,
-              Director: data.Director,
-              Year: data.Year,
-              Actors: data.Actors,
-              Runtime: data.Runtime
-            }
-          },
-          isLoading: !this.state.isLoading
-        });
+        const { data } = response;
+        if (data.Error) {
+          this.setState({
+            errorMessage: data.Error,
+            isLoading: false
+          });
+        } else {
+          this.setState({
+            id: id,
+            activeMovie: {
+              Title: data.Title,
+              Genre: data.Genre,
+              Plot: data.Plot,
+              Poster: data.Poster,
+              id: data.imdbID,
+              Details: {
+                Language: data.Language,
+                Director: data.Director,
+                Year: data.Year,
+                Actors: data.Actors,
+                Runtime: data.Runtime
+              }
+            },
+            isLoading: !this.state.isLoading
+          });
+        }
       })
-      .catch(function(error) {
-        // handle error
-        console.log(error);
+      .catch(error => {
+        this.setState({
+          errorMessage: "Hmm... something went wrong.",
+          isLoading: false
+        });
       });
     this.updateArray();
   };
 
-  findMovieById = (array, id) => {
-    return array.find(element => {
-      return element.imdbID === id;
-    });
-  };
+  findMovieById = (arr, id) => arr.find(el => el.id === id);
 
   componentWillReceiveProps = props => {
-    const id = props.id;
-    const searchedBeforeEl = this.findMovieById(this.state.previousMovies, id);
+    const { id } = props;
     if (id !== this.state.id) {
+      const searchedBeforeEl = this.findMovieById(
+        this.state.previousMovies,
+        id
+      );
       if (searchedBeforeEl) {
         this.setState({ activeMovie: searchedBeforeEl, id });
       } else {
@@ -71,12 +78,11 @@ class MovieContainer extends Component {
 
   render() {
     const { isLoading, activeMovie } = this.state;
-    console.log(activeMovie);
     if (isLoading) return <Loader isAlt={true} />;
     return (
       <div className="c-movie-container">
         {activeMovie.length === 0 ? (
-          <EmptyElement text="No movie selected" size="large" />
+          <BlankSlate text="No movie selected" size="large" />
         ) : (
           <Movie data={activeMovie} />
         )}

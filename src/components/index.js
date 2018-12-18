@@ -1,6 +1,6 @@
 import { ButtonIconOnly, ButtonOverlay } from "./Buttons";
 import ControlPanel from "./ControlPanel";
-import EmptyElement from "./EmptyElement";
+import BlankSlate from "./BlankSlate";
 import Fieldset from "./Fieldset";
 import Form from "./Form";
 import Heading from "./Heading";
@@ -21,7 +21,7 @@ export {
   ButtonIconOnly,
   ButtonOverlay,
   ControlPanel,
-  EmptyElement,
+  BlankSlate,
   Fieldset,
   Form,
   Heading,

@@ -8,6 +8,7 @@ import {
 } from "./../components";
 import { Main, Aside, Section } from "./../layout";
 import { API_URL } from "./../config";
+import { INITIAL_SEARCH_VALUE } from "./../constants";
 import MovieContainer from "./MovieContainer";
 
 class App extends Component {
@@ -26,16 +27,17 @@ class App extends Component {
     axios
       .get(`${API_URL}s=${search}&page=${pageNumber}`)
       .then(response => {
+        const { data } = response;
         // deliberately left the ability to empty search for the error to be shown.
-        if (response.data.Error) {
+        if (data.Error) {
           this.setState({
-            errorMessage: response.data.Error,
+            errorMessage: data.Error,
             isLoading: false
           });
         } else {
           this.setState({
-            movieList: response.data.Search,
-            totalResults: Number(response.data.totalResults),
+            movieList: data.Search,
+            totalResults: Number(data.totalResults),
             pageNumber: Number(pageNumber),
             isLoading: false,
             previousSearch: search,
@@ -48,14 +50,12 @@ class App extends Component {
           errorMessage: "Hmm... something went wrong.",
           isLoading: false
         });
-        // handle error
-        console.log(error);
       });
   };
 
   componentDidMount = () => {
     // no option to return data with empty search on api, so passed initial search param to populate movie list
-    this.getListData("big");
+    this.getListData(INITIAL_SEARCH_VALUE);
   };
 
   handleChange = e => {

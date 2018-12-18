@@ -1,6 +1,6 @@
 import React from "react";
 import "./MovieList.css";
-import { EmptyElement, Loader, MovieListItem } from "..";
+import { BlankSlate, Loader, MovieListItem } from "..";
 
 const MovieList = ({
   arr,
@@ -12,7 +12,7 @@ const MovieList = ({
 }) => {
   const Tag = isOrdered ? "ol" : "ul";
   if (isLoading) return <Loader />;
-  if (errorMessage) return <EmptyElement text={errorMessage} />;
+  if (errorMessage) return <BlankSlate text={errorMessage} />;
   return (
     <Tag className="c-movie-list">
       {arr.map((item, index) => (

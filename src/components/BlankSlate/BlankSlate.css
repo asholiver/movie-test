@@ -1,4 +1,4 @@
-.c-empty-element {
+.c-blank-slate {
     align-items: center;
     color: var(--g-color-text);
     display: flex;
@@ -7,6 +7,6 @@
     height: 10rem;
 }
 
-.c-empty-element--large {
+.c-blank-slate--large {
     height: 40rem;
 }
